@@ -15,14 +15,10 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('saison_id');
             $table->string('name');
-            $table->text('resume');
-            $table->integer('note');
-            $table->string('image');
-            $table->integer('series_id')->unsigned();
-            $table->foreign('series_id')->references('id')->on('series');
+            $table->string('resume');
             $table->timestamps();
-
         });
     }
 

@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('/series', 'SerieController');
+Route::resource('/episodes', 'EpisodeController');
 Route::resource('/comments', 'CommentsController');
 
 Route::post('/series/{serie}/comments', 'CommentsController@store');

@@ -14,4 +14,13 @@ class Saison extends Model
     {
         return $this->belongsTo('App\Serie');
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'serie_id'
+    ];
 }

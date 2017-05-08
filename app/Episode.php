@@ -10,4 +10,8 @@ class Episode extends Model
     {
         return $this->belongsTo('App\Saison');
     }
+
+    protected $fillable = [
+        'name', 'resume', 'saison_id'
+    ];
 }

@@ -17,6 +17,18 @@
                         <h1>{{$serie->name}}</h1>
                         <p>{{$serie->resume}}</p>
 
+                            @foreach ($serie->saison as $saison)
+                                <li class="list-group-item">
+                                    {{ $saison->name }}
+                                </li> <br>
+                                @foreach ($saison->episode as $episode)
+                                    <li class="list-group-item">
+                                        <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
+                                    </li>
+                                @endforeach
+                                <br><br>
+                            @endforeach
+
                         <hr>
 
 
@@ -49,7 +61,10 @@
                                             <strong>
                                                 {{ $comment->created_at->diffForHumans() }}
                                             </strong>
-                                            {{ $comment->message }}
+                                            {{ $comment->message }}<br>
+                                            <a href="{{route('comments.edit', ['id' => $comment->id])}}">
+                                                Modifier le commentaire
+                                            </a>
                                         </li>
                                     @endforeach
 

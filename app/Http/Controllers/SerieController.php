@@ -27,7 +27,7 @@ class SerieController extends Controller
      */
     public function create()
     {
-        //
+        return view('series.create');
     }
 
     /**
@@ -38,7 +38,21 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'name' => 'required',
+            'resume' => 'required'
+        ],
+            [
+                'content.required' => 'Content obligatoire'
+            ]);
+
+        Serie::create([
+            'name' => $request->name,
+            'resume' => $request->resume,
+        ]);
+
+        return redirect()->route('series.index')->with('success', 'Série créé');
     }
 
     /**
@@ -49,7 +63,13 @@ class SerieController extends Controller
      */
     public function show($id)
     {
-        //
+        $serie = Serie::find($id);
+
+        if(!$serie) {
+            return redirect()->route('series.index');
+        }
+
+        return view('series.show', compact('serie'));
     }
 
     /**
@@ -60,7 +80,13 @@ class SerieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $serie = Serie::find($id);
+
+        if(!$serie) {
+            return redirect()->route('series.index');
+        }
+
+        return view('series.edit', compact('serie'));
     }
 
     /**
@@ -72,7 +98,21 @@ class SerieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'resume' => 'required'
+        ],
+            [
+                'content.required' => 'Content obligatoire'
+            ]);
+
+        $serie = Serie::find($id);
+
+        $serie->name = $request->name;
+        $serie->resume = $request->resume;
+        $serie->save();
+
+        return redirect()->route('series.show', [$serie->id])->with('success', 'Série modifiée');
     }
 
     /**
@@ -83,6 +123,10 @@ class SerieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $serie = Serie::find($id);
+
+        $serie->delete();
+
+        return redirect()->route('series.index')->with('success', 'Série supprimée');
     }
 }

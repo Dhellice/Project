@@ -8,25 +8,23 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
+
                         @if(session('success'))
                             <div class="alert alert-success">
                                 {{session('success')}}
                             </div>
                         @endif
-
-                        @forelse($series as $serie)
-                            <h1>{{ $serie->name }}</h1>
-                            <p>{{ $serie->resume }}</p>
-                                <a href="{{route('series.show', ['id' => $serie->id])}}">
-                                    Voir la série
-                                </a>
-
+                        @forelse($comments as $comment)
+                            <h1>{{ $comment->message }}</h1>
+                            <a href="{{route('comments.show', ['id' => $comment->id])}}">
+                                Voir mon commentaire
+                            </a>
                         @empty
                             Rien du tout
                         @endforelse
                     </div>
                     <div class="text-center">
-                        {{$series->links()}}
+                        {{$comments->links()}}
                     </div>
                 </div>
             </div>

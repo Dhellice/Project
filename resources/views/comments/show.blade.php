@@ -14,22 +14,31 @@
                             </div>
                         @endif
 
-                        @forelse($series as $serie)
-                            <h1>{{ $serie->name }}</h1>
-                            <p>{{ $serie->resume }}</p>
-                                <a href="{{route('series.show', ['id' => $serie->id])}}">
-                                    Voir la série
-                                </a>
 
-                        @empty
-                            Rien du tout
-                        @endforelse
-                    </div>
-                    <div class="text-center">
-                        {{$series->links()}}
+                        <div class="comments">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <strong>
+                                        {{ $comment->created_at->diffForHumans() }}
+                                    </strong>
+                                    {{ $comment->message }}
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+
+                        <hr>
+
+
+
+                        <a class="btn btn-default navbar-btn" href="{{route('comments.index')}}">Retour</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 @endsection

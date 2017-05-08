@@ -34,20 +34,23 @@
 
                         <div class="card">
                             <div class="card-block">
-                                <form method="POST" action="/series/{{ $serie->id }}/comments">
+                                @if(Auth::check())
+                                        <form method="POST" action="/series/{{ $serie->id }}/comments">
 
-                                    {{ csrf_field() }}
-                                    <div class="form-group">
-                                            <textarea name="message" placeholder="Votre commentaire." class="form-control">
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                                    <textarea name="message" placeholder="Votre commentaire." class="form-control">
 
-                                            </textarea>
-                                    </div>
+                                                    </textarea>
+                                            </div>
 
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Ajouter</button>
-                                    </div>
-
-                                </form>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                                            </div>
+                                        </form>
+                                @else
+                                    <h3>Veuillez vous connecter pour écrire un commentaire </h3>
+                                @endif
                             </div>
                         </div>
 

@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <script src="https://use.fontawesome.com/0a2d5cb410.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <style>
             html, body {
@@ -47,7 +48,13 @@
             }
 
             .title {
-                font-size: 40px;
+                font-size: 30px;
+                display: inline-block;
+                margin-left: 5%;
+            }
+
+            .fa-video-camera{
+                font-size: 50px;
             }
 
             .title2 {
@@ -75,22 +82,29 @@
             body{
                 background-color: #7f8c8d !important;
             }
+
+            a{
+                text-decoration: none !important;
+            }
+
+            .btnh1:hover{
+                background-color: #3B5998  !important;
+            }
+
+            .btnh2:hover{
+                background-color: #33CCFF  !important;
+            }
+
+            .btnh3:hover{
+                background-color: #a94442  !important;
+            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+    <div class="flex-center position-ref full-height">
         <div class="well">
             <div class="content">
+                <i class="fa fa-video-camera" aria-hidden="true"></i>
                 <div class="title m-b-md">
                     Bienvenue sur gnégné.com
                 </div>
@@ -99,15 +113,15 @@
                     Inscrivez vous ou connectez vous via vos réseaux sociaux :
                 </div>
                 <div class="links">
-                    <button type="button" class="btn btn-default"><a href="">Facebook</a></button><br><br>
-                    <button type="button" class="btn btn-default"><a href="">Twitter</a></button><br><br>
-                    <button type="button" class="btn btn-default"><a href="">Connexion</a></button><br><br>
+                    <button type="button" class="btn btnh1 btn-default"><a href="">Facebook</a></button><br><br>
+                    <button type="button" class="btn btnh2 btn-default"><a href="">Twitter</a></button><br><br>
+                    <button type="button" class="btn btnh3 btn-default"><a href="login">Connexion</a></button><br><br>
                 </div>
                 <hr>
                 <button type="button" class="btn btn-default"><a href="register">Inscription</a></button>
                 <a href="series" id="textwell">Continuer sans se connecter</a>
             </div>
         </div>
-        </div>
+    </div>
     </body>
 </html>

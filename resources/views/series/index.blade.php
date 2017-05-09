@@ -1,11 +1,24 @@
 @extends('layouts.app')
+<style>
+    .block {
+        height:300px;
+    }
+
+    .serie {
+        color:white;
+    }
+
+    .serie:hover {
+        color:black;
+        text-decoration:none;
+    }
+</style>
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+                    <div class="panel-heading">Les series</div>
 
                     <div class="panel-body">
                         @if(session('success'))
@@ -15,11 +28,24 @@
                         @endif
 
                         @forelse($series as $serie)
-                            <h1>{{ $serie->name }}</h1>
-                            <p>{{ $serie->resume }}</p>
-                                <a href="{{route('series.show', ['id' => $serie->id])}}">
+                                <div class="col-xs-9 col-md-6 block">
+                                <h1>{{ $serie->name }}</h1>
+                                    <p>{{ $serie->resume }}</p>
+                                    @php
+
+                                    $resume=  $serie->resume ;
+                                    if(strlen($resume)>=30)
+                                    {
+                                        $resume=substr($resume,0,164) . " ..." ;
+                                    }
+
+                                    echo $resume;
+
+                                    @endphp
+                                <br><br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
-                                </a>
+                                </a></button>
+                                </div>
 
                         @empty
                             Rien du tout
@@ -29,7 +55,6 @@
                         {{$series->links()}}
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 @endsection

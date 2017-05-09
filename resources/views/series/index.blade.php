@@ -1,4 +1,10 @@
 @extends('layouts.app')
+<style>
+    .block {
+        height:300px;
+
+    }
+</style>
 
 @section('content')
     <div class="container">
@@ -14,15 +20,15 @@
                         @endif
 
                         @forelse($series as $serie)
-                                <div class="col-xs-9 col-md-6">
-                            <h1>{{ $serie->name }}</h1>
-                            <p>{{ $serie->resume }}</p>
+                                <div class="col-xs-9 col-md-6 block">
+                                <h1>{{ $serie->name }}</h1>
+                                    <p>{{ $serie->resume }}</p>
                                     @php
 
                                     $resume=  $serie->resume ;
                                     if(strlen($resume)>=30)
                                     {
-                                        $resume=substr($resume,0,234) . " ..." ;
+                                        $resume=substr($resume,0,164) . " ..." ;
                                     }
 
                                     echo $resume;

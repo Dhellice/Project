@@ -51,7 +51,6 @@
                                         @endphp</p>
                                 <br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
-                                            @php echo mb_strlen('testé', 'UTF-8'); @endphp
                                 </a></button>
                                 </div>
 

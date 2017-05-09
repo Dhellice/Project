@@ -2,7 +2,15 @@
 <style>
     .block {
         height:300px;
+    }
 
+    .serie {
+        color:white;
+    }
+
+    .serie:hover {
+        color:black;
+        text-decoration:none;
     }
 </style>
 
@@ -34,9 +42,9 @@
                                     echo $resume;
 
                                     @endphp
-                                <a href="{{route('series.show', ['id' => $serie->id])}}">
+                                <br><br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
-                                </a>
+                                </a></button>
                                 </div>
 
                         @empty

@@ -90,17 +90,17 @@
 
             .btnh1{
                 background-color: #3B5998  !important;
-            }
-            .btnh1:hover{
-                text-color: #FFFFFF  !important;
+                width: 200px;
             }
 
             .btnh2{
                 background-color: #33CCFF  !important;
+                width: 200px;
             }
 
             .btnh3{
                 background-color: #a94442  !important;
+                width: 200px;
             }
         </style>
     </head>

@@ -19,7 +19,6 @@ class CreatePersonnagesTable extends Migration
             $table->string('name');
             $table->integer('series_id')->unsigned();
             $table->foreign('series_id')->references('id')->on('series');
-            $table->string('image');
             $table->timestamps();
         });
     }

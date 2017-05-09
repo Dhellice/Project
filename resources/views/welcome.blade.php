@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <style>
             html, body {
                 background-color: #fff;
@@ -46,7 +47,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 40px;
+            }
+
+            .title2 {
+                font-size: 20px;
             }
 
             .links > a {
@@ -62,6 +67,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #textwell{
+                margin-left: 20%;
+            }
+
+            body{
+                background-color: #7f8c8d !important;
+            }
         </style>
     </head>
     <body>
@@ -76,20 +89,25 @@
                     @endif
                 </div>
             @endif
-
+        <div class="well">
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Bienvenue sur gnégné.com
                 </div>
-
+                <hr>
+                <div class="title2 m-b-md">
+                    Inscrivez vous ou connectez vous via vos réseaux sociaux :
+                </div>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <button type="button" class="btn btn-default"><a href="">Facebook</a></button><br><br>
+                    <button type="button" class="btn btn-default"><a href="">Twitter</a></button><br><br>
+                    <button type="button" class="btn btn-default"><a href="">Connexion</a></button><br><br>
                 </div>
+                <hr>
+                <button type="button" class="btn btn-default"><a href="register">Inscription</a></button>
+                <a href="series" id="textwell">Continuer sans se connecter</a>
             </div>
+        </div>
         </div>
     </body>
 </html>

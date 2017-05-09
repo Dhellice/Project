@@ -30,19 +30,30 @@
                         @forelse($series as $serie)
                                 <div class="col-xs-9 col-md-6 block">
                                 <h1>{{ $serie->name }}</h1>
-                                    <p>{{ $serie->resume }}</p>
-                                    @php
+                                    <p>@php
 
-                                    $resume=  $serie->resume ;
-                                    if(strlen($resume)>=30)
-                                    {
-                                        $resume=substr($resume,0,164) . " ..." ;
-                                    }
+                                            $resume=  $serie->resume ;
+                                            if(strlen($resume)>=200)
+                                            {
+                                            //on "bride" notre titre a 30 caracteres par exemple
+                                            $resume=substr($resume,0,800);
 
-                                    echo $resume;
+                                            //on recupere un tableau contenant chaque mot
+                                            $mot=str_word_count($resume, 1);
 
-                                    @endphp
-                                <br><br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
+                                            //et on affiche les 4 premiers mots
+                                            foreach($mot as $key => $mots)
+                                            {
+                                            if($key<50)
+                                            {
+                                            echo $mots." ";
+                                            }
+                                            }
+
+                                            }
+
+                                        @endphp</p>
+                                <br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
                                 </a></button>
                                 </div>

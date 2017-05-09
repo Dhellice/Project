@@ -83,19 +83,23 @@
                 background-color: #7f8c8d !important;
             }
 
-            a{
+            .btnc{
                 text-decoration: none !important;
+                color: #FFFFFF !important;
             }
 
-            .btnh1:hover{
+            .btnh1{
                 background-color: #3B5998  !important;
             }
+            .btnh1:hover{
+                text-color: #FFFFFF  !important;
+            }
 
-            .btnh2:hover{
+            .btnh2{
                 background-color: #33CCFF  !important;
             }
 
-            .btnh3:hover{
+            .btnh3{
                 background-color: #a94442  !important;
             }
         </style>
@@ -113,9 +117,9 @@
                     Inscrivez vous ou connectez vous via vos réseaux sociaux :
                 </div>
                 <div class="links">
-                    <button type="button" class="btn btnh1 btn-default"><a href="">Facebook</a></button><br><br>
-                    <button type="button" class="btn btnh2 btn-default"><a href="">Twitter</a></button><br><br>
-                    <button type="button" class="btn btnh3 btn-default"><a href="login">Connexion</a></button><br><br>
+                    <button type="button" class="btn btnh1 btn-default"><a href="" class="btnc">Facebook</a></button><br><br>
+                    <button type="button" class="btn btnh2 btn-default"><a href="" class="btnc">Twitter</a></button><br><br>
+                    <button type="button" class="btn btnh3 btn-default"><a href="login" class="btnc">Connexion</a></button><br><br>
                 </div>
                 <hr>
                 <button type="button" class="btn btn-default"><a href="register">Inscription</a></button>

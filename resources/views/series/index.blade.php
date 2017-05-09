@@ -31,30 +31,27 @@
                                 <div class="col-xs-9 col-md-6 block">
                                 <h1>{{ $serie->name }}</h1>
                                     <p>@php
+                                            header('Content-type: text/html; charset=UTF-8');
+                                                    $resume=  $serie->resume ;
+                                                    if(strlen($resume)>=33)
+                                                    {
+                                                    //on "bride" notre titre a 30 caracteres par exemple
+                                                        $resume=substr($resume,0,230);
 
-                                            $resume=  $serie->resume ;
-                                            if(strlen($resume)>=200)
-                                            {
-                                            //on "bride" notre titre a 30 caracteres par exemple
-                                            $resume=substr($resume,0,800);
+                                                    //on recupere la derniere position de l'espace, ici $espace=28
+                                                        $espace=strrpos($resume, ' ');
 
-                                            //on recupere un tableau contenant chaque mot
-                                            $mot=str_word_count($resume, 1);
+                                                    //puis nous rebridons notre titre a 28 caracteres (donc juste avant l'espace) et nous rajoutons nos trois petits points
+                                                        $resume=substr($resume,0,$espace)." ...";
 
-                                            //et on affiche les 4 premiers mots
-                                            foreach($mot as $key => $mots)
-                                            {
-                                            if($key<50)
-                                            {
-                                            echo $mots." ";
-                                            }
-                                            }
+                                                    }
 
-                                            }
+                                                    echo $resume;
 
                                         @endphp</p>
                                 <br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
+                                            @php echo mb_strlen('testé', 'UTF-8'); @endphp
                                 </a></button>
                                 </div>
 

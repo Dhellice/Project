@@ -54,8 +54,8 @@ return [
     |
     */
 
-    'headline'      => 'Welcome to Chatter',
-    'description'   => 'A simple forum package for your Laravel app.',
+    'headline'      => 'Bienvenue sur le Forum de Gnegne.com',
+    'description'   => 'Nous vous souhaitons un agréable moment de partage',
     'headline_logo' => '/vendor/devdojo/chatter/assets/images/logo-light.png',
 
     /*

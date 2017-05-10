@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -23,3 +24,7 @@ Route::resource('/episodes', 'EpisodeController');
 Route::resource('/comments', 'CommentsController');
 
 Route::post('/series/{serie}/comments', 'CommentsController@store');
+
+Route::get("/",'HomeController@welcome');
+//404
+//500

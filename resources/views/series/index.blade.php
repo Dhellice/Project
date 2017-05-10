@@ -31,9 +31,9 @@
                                 <div class="col-xs-9 col-md-6 block">
                                 <h1>{{ $serie->name }}</h1>
                                     <p>@php
-                                            header('Content-type: text/html; charset=UTF-8');
-                                                    $resume=  $serie->resume ;
-                                                    if(strlen($resume)>=33)
+                                           // header('Content-type: text/html; charset=UTF-8');
+                                                    $resume = utf8_encode(utf8_decode($serie->resume)) ;
+                                                    if(strlen($resume)>=230)
                                                     {
                                                     //on "bride" notre titre a 30 caracteres par exemple
                                                         $resume=substr($resume,0,230);

@@ -26,5 +26,9 @@ Route::resource('/comments', 'CommentsController');
 Route::post('/series/{serie}/comments', 'CommentsController@store');
 
 Route::get("/",'HomeController@welcome');
-//404
-//500
+
+
+Route::get('/contact',
+    ['as' => 'contact', 'uses' => 'ContactController@create']);
+Route::post('/contact',
+    ['as' => 'contact_store', 'uses' => 'ContactController@store']);

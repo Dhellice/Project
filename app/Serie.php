@@ -11,6 +11,11 @@ class Serie extends Model
         return $this->hasMany('App\Saison');
     }
 
+    public function personnage()
+    {
+        return $this->hasMany('App\Personnage');
+    }
+
     public function comments()
     {
         return $this->hasMany('App\Comments');

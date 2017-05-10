@@ -29,6 +29,14 @@
                                 <br><br>
                             @endforeach
 
+                            <h1>Personnages</h1>
+                            @foreach ($serie->personnage as $personnage)
+                                <li class="list-group-item">
+                                    {{ $personnage->acteur }} as {{ $personnage->name }}
+                                </li> <br>
+                            @endforeach
+
+
                         <hr>
 
 

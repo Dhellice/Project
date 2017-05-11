@@ -13,13 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
-    public function __construct()
-    {
-    }
->>>>>>> 8e34915c0f1b8f9b213a1dd9591aea134aa00735
-
+    
     /**
      * Show the application dashboard.
      *

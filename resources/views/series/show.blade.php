@@ -73,9 +73,11 @@
                                                 {{ $comment->created_at->diffForHumans() }}
                                             </strong>
                                             {{ $comment->message }}<br>
+                                            @if (Auth::user()->id == $comment->user_id)
                                             <a href="{{route('comments.edit', ['id' => $comment->id])}}">
                                                 Modifier le commentaire
                                             </a>
+                                                @endif
                                         </li>
                                     @endforeach
 

@@ -118,10 +118,10 @@
                 <div class="links">
                     <button type="button" class="btn btnh1 btn-default"><a href="" class="btnc">Facebook</a></button><br><br>
                     <button type="button" class="btn btnh2 btn-default"><a href="" class="btnc">Twitter</a></button><br><br>
-                    <button type="button" class="btn btnh3 btn-default"><a href="login" class="btnc">Connexion</a></button><br><br>
+                    <button type="button" class="btn btnh3 btn-default"><a href="{{route('login')}}" class="btnc">Connexion</a></button><br><br>
                 </div>
                 <hr>
-                <button type="button" class="btn btn-default"><a href="register">Inscription</a></button>
+                <button type="button" class="btn btn-default"><a href="{{route('register')}}">Inscription</a></button>
                 <a href="series" id="textwell">Continuer sans se connecter</a>
             </div>
         </div>

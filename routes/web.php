@@ -17,7 +17,7 @@
 //});
 
 Auth::routes();
-
+Route::get("/",'HomeController@welcome');
 Route::get('/home', 'HomeController@index');
 Route::resource('/series', 'SerieController');
 Route::resource('/episodes', 'EpisodeController');
@@ -25,7 +25,7 @@ Route::resource('/comments', 'CommentsController');
 
 Route::post('/series/{serie}/comments', 'CommentsController@store');
 
-Route::get("/",'HomeController@welcome');
+
 
 
 Route::get('/contact',

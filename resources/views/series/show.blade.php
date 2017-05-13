@@ -31,6 +31,8 @@
 
                             <h1>Personnages</h1>
                             @foreach ($serie->personnage as $personnage)
+                                <img src="{{ asset('img/' . $personnage->image) }}">
+
                                 <li class="list-group-item">
                                     {{ $personnage->acteur }} as {{ $personnage->name }}
                                 </li> <br>

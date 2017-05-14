@@ -19,6 +19,8 @@
                         <hr>
 
                             <a href="{{route('series.index')}}">Retour</a>
+                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id - 1])}}"> Article précédent </a>
+                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id + 1])}}"> Article suivant </a>
                         <hr>
 
 

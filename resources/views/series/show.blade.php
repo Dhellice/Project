@@ -15,7 +15,18 @@
                         @endif
 
                         <h1>{{$serie->name}}</h1>
-                        <p>{{$serie->resume}}</p>
+                        <p>@php
+                                         $resume = $serie->resume ;
+                                         if(strlen($resume)>=20000)
+                                         {
+                                             echo $resume;}
+                                         else{
+                                         echo $resume;
+                                         }
+
+                                         echo $resume;
+
+                            @endphp</p>
 
                             @foreach ($serie->saison as $saison)
                                 <li class="list-group-item">

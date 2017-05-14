@@ -33,16 +33,16 @@
                                     <p>@php
                                            // header('Content-type: text/html; charset=UTF-8');
                                                     $resume = utf8_encode(utf8_decode($serie->resume)) ;
-                                                    if(strlen($resume)>=230)
+                                                    if(strlen($resume)>=2)
                                                     {
                                                     //on "bride" notre titre a 30 caracteres par exemple
-                                                        $resume=substr($resume,0,230);
+                                                        $resume=substr($resume,0,220);
 
                                                     //on recupere la derniere position de l'espace, ici $espace=28
                                                         $espace=strrpos($resume, ' ');
 
                                                     //puis nous rebridons notre titre a 28 caracteres (donc juste avant l'espace) et nous rajoutons nos trois petits points
-                                                        $resume=substr($resume,0,$espace)." ...";
+                                                        $resume=substr($resume,0,$espace)."...";
 
                                                     }
 

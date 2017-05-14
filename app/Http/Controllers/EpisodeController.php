@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Episode;
 use App\Saison;
+use App\Serie;
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
@@ -63,7 +64,7 @@ class EpisodeController extends Controller
             return redirect()->route('series.index');
         }
 
-        return view('episodes.show', compact('episode'));
+        return view('episodes.show', compact('episode', 'serie'));
     }
 
     /**

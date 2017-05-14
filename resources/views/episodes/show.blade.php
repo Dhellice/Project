@@ -15,12 +15,11 @@
                         @endif
                         <li class="list-group-item"><h1>{{$episode->name}}</h1> </li>
                             <li class="list-group-item"><p>{{$episode->resume}}</p></li>
-
-                        <hr>
+                            <hr>
 
                             <a href="{{route('series.index')}}">Retour</a>
-                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id - 1])}}"> Article précédent </a>
-                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id + 1])}}"> Article suivant </a>
+                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id - 1])}}"> Épisode précédent </a>
+                            <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id + 1])}}"> Épisode suivant </a>
                         <hr>
 
 

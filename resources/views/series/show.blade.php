@@ -47,7 +47,9 @@
 
 
                         <hr>
-
+                            <a class="btn btn-default navbar-btn" href="{{route('series.index')}}">Retour</a>
+                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id - 1])}}"> Série précédente </a>
+                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id + 1])}}"> Série suivante </a>
 
                         <div class="card">
                             <div class="card-block">
@@ -71,7 +73,6 @@
                             </div>
                         </div>
 
-                        <a class="btn btn-default navbar-btn" href="{{route('series.index')}}">Retour</a>
                         <hr>
 
                             <div class="comments">

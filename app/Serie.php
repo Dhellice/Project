@@ -20,7 +20,10 @@ class Serie extends Model
     {
         return $this->hasMany('App\Comments');
     }
-
+    public function likes()
+    {
+        return $this->morphToMany('App\User', 'likeable')->whereDeletedAt(null);
+    }
     /**
      * The attributes that are mass assignable.
      *

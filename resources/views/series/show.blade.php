@@ -34,6 +34,12 @@
                                     </li>
                                 @endforeach
                                 <br><br>
+
+                                <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+                                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                <div class="addthis_inline_share_toolbox"></div>
+
+
                             @endforeach
 
                             <h1>Personnages</h1>

@@ -1,4 +1,11 @@
-@extends('layouts.app')
+<style>
+    .image_serie {
+        width:80%;
+        margin: 0 auto;
+    }
+    </style>
+
+    @extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -13,7 +20,7 @@
                                 {{session('success')}}
                             </div>
                         @endif
-
+                            <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
                         <h1>{{$serie->name}}</h1>
                         <p>{{$serie->resume}}</p>
 

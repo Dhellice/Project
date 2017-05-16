@@ -3,6 +3,10 @@
         width:80%;
         margin: 0 auto;
     }
+    .title{
+        font-size: 50px;
+        text-align: center;
+    }
     </style>
 
     @extends('layouts.app')
@@ -21,7 +25,7 @@
                             </div>
                         @endif
                             <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
-                        <h1>{{$serie->name}}</h1>
+                        <h1 class="title">{{$serie->name}}</h1>
                         <p>{{$serie->resume}}</p>
 
                             @foreach ($serie->saison as $saison)
@@ -44,7 +48,7 @@
 
                             <h1>Personnages</h1>
                             @foreach ($serie->personnage as $personnage)
-                                <img src="{{ asset('img/' . $personnage->image) }}">
+                                <img class="img_perso" src="{{ asset('img/' . $personnage->image) }}">
 
                                 <li class="list-group-item">
                                     {{ $personnage->acteur }} as {{ $personnage->name }}

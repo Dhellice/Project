@@ -17,6 +17,8 @@
     .image_perso{
         margin-left: auto;
         margin-right: auto;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
     }
     #noms{
         width: 170px;

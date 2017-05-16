@@ -7,6 +7,20 @@
         font-size: 50px;
         text-align: center;
     }
+    .perso{
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .image_perso{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #noms{
+        width: 170px;
+    }
     </style>
 
     @extends('layouts.app')
@@ -48,11 +62,12 @@
 
                             <h1>Personnages</h1>
                             @foreach ($serie->personnage as $personnage)
-                                <img class="img_perso" src="{{ asset('img/' . $personnage->image) }}">
+                                <div class="perso">
+                                <img class="image_perso" src="{{ asset('img/' . $personnage->image) }}">
 
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="noms">
                                     {{ $personnage->acteur }} as {{ $personnage->name }}
-                                </li> <br>
+                                </li></div>
                             @endforeach
 
 

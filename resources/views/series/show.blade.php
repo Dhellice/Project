@@ -22,6 +22,7 @@
     }
     #noms{
         width: 170px;
+        font-size: 10px;
     }
     </style>
 
@@ -68,7 +69,7 @@
                                 <img class="image_perso" src="{{ asset('img/' . $personnage->image) }}">
 
                                 <li class="list-group-item" id="noms">
-                                    {{ $personnage->acteur }} as {{ $personnage->name }}
+                                    {{ $personnage->acteur }} <br> {{ $personnage->name }}
                                 </li></div>
                             @endforeach
 

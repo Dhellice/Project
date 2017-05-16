@@ -21,6 +21,31 @@
     #noms{
         width: 170px;
     }
+
+    .menuderoulant {
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+
+    .menuderoulant1{
+        position: relative;
+        background:#EFEFEF;
+        border-radius: 6px;
+        margin-bottom:2px;
+        box-shadow: 3px 3px 3px #999;
+        border:solid 1px #333A40
+    }
+
+    .menuderoulant2 {
+        position: absolute;
+        left:-999em;
+    }
+
+    .menuderoulant:hover .menuderoulant2 {
+        top: 0;
+        left: 0px;
+    }
     </style>
 
     @extends('layouts.app')
@@ -43,22 +68,22 @@
                         <p>{{$serie->resume}}</p>
 
                             @foreach ($serie->saison as $saison)
-                                <li class="list-group-item">
-                                    {{ $saison->name }}
-                                </li> <br>
-                                @foreach ($saison->episode as $episode)
-                                    <li class="list-group-item">
-                                        <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
-                                    </li>
-                                @endforeach
-                                <br><br>
+                                <ul class="list-group menuderoulant">
 
-                                <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
-                                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                                <div class="addthis_inline_share_toolbox"></div>
-
-
+                                    <li class="list-group-item menuderoulant1">
+                                            {{ $saison->name }}
+                                         <br>
+                                        @foreach ($saison->episode as $episode)
+                                            <li class="list-group-item menuderoulant2">
+                                                <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
+                                            </li>
+                                            </li>
+                                        @endforeach
+                                    <br><br>
+                                </ul>
                             @endforeach
+                            <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+
 
                             <h1>Personnages</h1>
                             @foreach ($serie->personnage as $personnage)

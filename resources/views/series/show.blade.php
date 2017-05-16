@@ -47,7 +47,7 @@
 
     .menuderoulant:hover .menuderoulant2 {
         top: 0;
-        left: 0px;
+        left: 0;
     }
     </style>
 
@@ -85,7 +85,10 @@
                                     <br><br>
                                 </ul>
                             @endforeach
+
+                            @if(Auth::check())
                             <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+                            @endif
 
 
                             <h1>Personnages</h1>
@@ -136,11 +139,14 @@
                                                 {{ $comment->created_at->diffForHumans() }}
                                             </strong>
                                             {{ $comment->message }}<br>
-                                            @if (Auth::user()->id == $comment->user_id)
-                                            <a href="{{route('comments.edit', ['id' => $comment->id])}}">
-                                                Modifier le commentaire
-                                            </a>
-                                                @endif
+                                            @if (Auth::check())
+                                                    @if (Auth::user()->id == $comment->user_id)
+                                                    <a href="{{route('comments.edit', ['id' => $comment->id])}}">
+                                                        Modifier le commentaire
+                                                    </a>
+                                                        @endif
+                                                @else
+                                            @endif
                                         </li>
                                     @endforeach
 

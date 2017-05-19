@@ -58,7 +58,7 @@ class EpisodeController extends Controller
      */
     public function show($id)
     {
-        $episode = Episode::find($id);
+         $episode = Episode::find($id);
 
         if(!$episode) {
             return redirect()->route('series.index');

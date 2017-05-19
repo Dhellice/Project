@@ -80,11 +80,23 @@
                                             <li class="list-group-item menuderoulant2">
                                                 <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
                                             </li>
-                                            </li>
+                                        </li>
                                         @endforeach
                                     <br><br>
                                 </ul>
                             @endforeach
+
+                            <select>
+                                @foreach ($serie->saison as $saison)
+                                    <option onselect="episodes()"> {{$saison->name}}</option>
+                                @endforeach
+                            </select>
+
+                            <script>
+                                function episodes(){
+                                }
+                            </script>
+
 
                             @if(Auth::check())
                             <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>

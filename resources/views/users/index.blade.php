@@ -13,6 +13,22 @@
                             <h2>{{Auth::user()->name}}</h2>
                             <p>{{Auth::user()->email}}</p>
                              <p>{{Auth::user()->created_at}}</p>
+
+                        <h3> Séries Préférées :</h3>
+                        @foreach ($likeables as $likeable)
+                            @if (Auth::check())
+                                @if (Auth::user()->id == $likeable->user_id)
+                                    @foreach ($series as $serie)
+                                    @if ($serie->id == $likeable->likeable_id)
+                                        {{ $serie->name }} <br>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @else
+                            @endif
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>

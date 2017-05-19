@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
+use App\Serie;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -25,9 +28,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        $series = Serie::all();
         $users = User::all();
+        $likeables = Like::all();
 
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $users, 'likeables' => $likeables, 'series' => $series]);
     }
 
 

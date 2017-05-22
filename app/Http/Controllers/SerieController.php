@@ -70,13 +70,12 @@ class SerieController extends Controller
         $serie = Serie::find($id);
         $somme =  DB::table('notes')->where('notes.serie_id', '=', $id)->sum('notes.note');
         $nombre = DB::table('notes')->where('notes.serie_id', '=', $id)->count();
-        $moyenne = $somme / $nombre;
 
         if(!$serie) {
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'moyenne'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre'));
     }
 
     /**

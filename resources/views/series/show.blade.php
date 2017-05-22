@@ -79,7 +79,12 @@
                         <h1 class="title">{{$serie->name}}</h1>
                             <h2> Note de la série :</h2>
                             <ul class="list-group">
-                                {{ $moyenne }} <br>
+
+                                @if($nombre > 0)
+                                {{ $somme / $nombre }}
+                                    @else
+                                    {{ "La moyenne de cette série n'est pas disponible" }}
+                                    @endif<br>
                                 {{--@foreach ($notes as $note)--}}
                                 {{--@if ($serie->id == $note->serie_id)--}}
                                     {{--{{ $Nb = sizeof($note) }}--}}

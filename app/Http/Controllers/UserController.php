@@ -5,17 +5,14 @@ namespace App\Http\Controllers;
 use App\Like;
 use App\Serie;
 use App\User;
+use App\Ami;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -31,9 +28,14 @@ class UserController extends Controller
         $series = Serie::all();
         $users = User::all();
         $likeables = Like::all();
+        $amis = Ami::all();
 
-        return view('users.index', ['users' => $users, 'likeables' => $likeables, 'series' => $series]);
+
+
+        return view('users.index', ['users' => $users, 'likeables' => $likeables, 'series' => $series, 'amis' => $amis]);
+
     }
+
 
 
 }

@@ -9,6 +9,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    public function amis()
+    {
+        return $this->morphToMany('App\Ami', 'amis')->whereDeletedAt(null);
+    }
     /**
      * The attributes that are mass assignable.
      *

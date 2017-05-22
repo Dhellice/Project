@@ -8,6 +8,11 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{session('success')}}
+                            </div>
+                        @endif
                         <h1>Profil</h1>
 
                             <h2>{{Auth::user()->name}}</h2>
@@ -21,6 +26,22 @@
                                     @foreach ($series as $serie)
                                     @if ($serie->id == $likeable->likeable_id)
                                         {{ $serie->name }} <br>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @else
+                            @endif
+                        @endforeach
+
+
+                        <h3> Amis :</h3>
+
+                        @foreach ($amis as $ami)
+                            @if (Auth::check())
+                                @if (Auth::user()->id == $ami->user_id)
+                                    @foreach ($users as $user)
+                                        @if ($user->id == $ami->ami_id)
+                                            {{ $user->name }} <br>
                                         @endif
                                     @endforeach
                                 @endif

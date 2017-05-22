@@ -24,6 +24,13 @@ class Serie extends Model
     {
         return $this->morphToMany('App\User', 'likeable')->whereDeletedAt(null);
     }
+
+    public function note()
+    {
+        return $this->hasMany('App\Note');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *

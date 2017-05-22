@@ -7,7 +7,7 @@
     .block{
         padding: 20px;
     }
-    
+
     .serie {
         color:white;
     }

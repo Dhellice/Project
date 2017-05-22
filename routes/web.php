@@ -23,7 +23,11 @@ Route::resource('/series', 'SerieController');
 Route::resource('/episodes', 'EpisodeController');
 Route::resource('/comments', 'CommentsController');
 Route::resource('/user', 'UserController');
+Route::resource('/ami', 'AmiController');
+Route::post('/series/{serie}/notes', 'NoteController@store');
 
+
+Route::get('user/ami/{id}', ['as' => 'user.ami', 'uses' => 'AmiController@amis']);
 Route::get('serie/like/{id}', ['as' => 'serie.like', 'uses' => 'LikeController@likeSerie']);
 Route::post('/series/{serie}/comments', 'CommentsController@store');
 

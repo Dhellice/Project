@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonnagesTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePersonnagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('personnages', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('acteur');
-            $table->string('name');
-            $table->string('image');
-            $table->integer('series_id')->unsigned();
-            $table->foreign('series_id')->references('id')->on('series');
+            $table->integer('note');
+            $table->integer('serie_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreatePersonnagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personnages');
+        Schema::dropIfExists('notes');
     }
 }

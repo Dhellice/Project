@@ -15,7 +15,7 @@ class SerieController extends Controller
     public function index()
     {
         //
-        $series = Serie::paginate(14);
+        $series = Serie::paginate(15);
 
         return view('series.index', ['series' => $series]);
     }

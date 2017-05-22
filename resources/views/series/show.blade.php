@@ -91,9 +91,14 @@
                                     <option onselect="episodes()"> {{$saison->name}}</option>
                                 @endforeach
                             </select>
+                            
+                            <script>
+
+                            </script>
 
                             <script>
                                 function episodes(){
+
                                 }
                             </script>
 

@@ -22,6 +22,6 @@ class Ami extends Model
      */
     public function users()
     {
-        return $this->morphedByMany('App\User', 'user');
+        return $this->morphedByMany('App\User', 'users');
     }
 }

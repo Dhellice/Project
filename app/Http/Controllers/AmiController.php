@@ -20,18 +20,18 @@ class AmiController extends Controller
     public function amis($id)
     {   if(Auth::check()) {
         // here you can check if product exists or is valid or whatever
-        $amis = User::find($id);
-        $this->handleLike('App\Ami', $id);
-        return redirect()->route('amis.index', ['id' => $amis->id])->with('success', "Vous avez liké la serie");
+        $users = User::find($id);
+        $this->handleAmi('App\Ami', $id);
+        return redirect()->route('users.index', ['id' => $users->id])->with('success', "Vous avez liké la serie");
     }
     else {
-        return redirect()->route('amis.index')->with('success', 'Vous devez être connecté pour aimer une série');
+        return redirect()->route('users.index')->with('success', 'Vous devez être connecté pour aimer une série');
     }
     }
 
-    public function handleLike($id)
+    public function handleAmi($id)
     {
-        $amis = User::find($id);
+        $users = User::find($id);
         $existing_ami = Ami::withTrashed()->whereAmiId($id)->whereUserId(Auth::id())->first();
 
         if (is_null($existing_ami)) {

@@ -78,7 +78,7 @@
     nav a {
         color: #fff;
         display: inline-block;
-        width: 150px;
+        width: 120px;
         text-align: center;
         line-height: 40px;
         text-shadow: 1px 1px 0px #2c3e50 !important;

@@ -79,13 +79,18 @@
                         <h1 class="title">{{$serie->name}}</h1>
                             <h2> Note de la série :</h2>
                             <ul class="list-group">
-                                @foreach ($serie->note as $note)
-                                    @if ($serie->id == $note->serie_id)
-                                       {{ $note->note }}
-                                        <br>
-                                        @endif
-                                @endforeach
-                            <p>{{$serie->resume}}</p>
+                                {{ $moyenne }} <br>
+                                {{--@foreach ($notes as $note)--}}
+                                {{--@if ($serie->id == $note->serie_id)--}}
+                                    {{--{{ $Nb = sizeof($note) }}--}}
+
+                                        {{--{{ $note->note }}--}}
+                                        {{--<br>--}}
+                                {{--@endif--}}
+                                {{--@endforeach--}}
+                                <br>
+
+                                    <p>{{$serie->resume}}</p>
 
                             @foreach ($serie->saison as $saison)
                                 <ul class="list-group menuderoulant">

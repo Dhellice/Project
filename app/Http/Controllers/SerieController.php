@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Note;
 use App\serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SerieController extends Controller
 {
@@ -63,13 +65,18 @@ class SerieController extends Controller
      */
     public function show($id)
     {
+
+        $notes = Note::all();
         $serie = Serie::find($id);
+        $somme =  DB::table('notes')->where('notes.serie_id', '=', $id)->sum('notes.note');
+        $nombre = DB::table('notes')->where('notes.serie_id', '=', $id)->count();
+        $moyenne = $somme / $nombre;
 
         if(!$serie) {
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'moyenne'));
     }
 
     /**

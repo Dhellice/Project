@@ -49,6 +49,15 @@
         top: 0;
         left: 0;
     }
+
+    label {
+        color:lightblue;
+    }
+
+    label:hover {
+        color:darkslateblue;
+    }
+
     </style>
 
     @extends('layouts.app')
@@ -68,7 +77,15 @@
                         @endif
                             <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
                         <h1 class="title">{{$serie->name}}</h1>
-                        <p>{{$serie->resume}}</p>
+                            <h2> Note de la série :</h2>
+                            <ul class="list-group">
+                                @foreach ($serie->note as $note)
+                                    @if ($serie->id == $note->serie_id)
+                                       {{ $note->note }}
+                                        <br>
+                                        @endif
+                                @endforeach
+                            <p>{{$serie->resume}}</p>
 
                             @foreach ($serie->saison as $saison)
                                 <ul class="list-group menuderoulant">
@@ -100,6 +117,26 @@
 
                             @if(Auth::check())
                             <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+                                <div class="rating" >
+                                    <h3>Noter la série</h3>
+                                    <form id="test" method="POST" action="/series/{{ $serie->id }}/notes" onchange="document.getElementById('test').submit();">
+                                    {{csrf_field()}}
+                                            <label for="1">★</label>
+                                            <input name="note" type="radio" value="1" id="1" class="etoile" style="visibility:hidden">
+
+                                            <label for="2" >★</label>
+                                            <input name="note" type="radio" value="2" id="2" class="etoile" style="visibility:hidden">
+
+                                            <label for="3">★</label>
+                                            <input name="note" type="radio" value="3" id="3" class="etoile"  style="visibility:hidden">
+
+                                            <label for="4">★</label>
+                                            <input name="note" type="radio" value="4" id="4" class="etoile"  style="visibility:hidden">
+
+                                            <label for="5">★</label>
+                                            <input name="note" type="radio" value="5" id="5" class="etoile"  style="visibility:hidden">
+                                    </form>
+                                </div>
                             @endif
 
 

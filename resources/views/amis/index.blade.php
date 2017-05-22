@@ -14,7 +14,7 @@
                     <h3 class="title">{{ $user->name }}</h3>
                     <br>
                     @if(Auth::check())
-                        <a class="btn btn-primary navbar-btn" href="{{ route('ami.index', $user->id) }}">Ajouter en ami</a><br>
+                        <a class="btn btn-primary navbar-btn" href="{{ route('user.ami', $user->id) }}">Ajouter en ami</a><br>
                     @endif
                 </div>
 

@@ -21,11 +21,11 @@ class AmiController extends Controller
     {   if(Auth::check()) {
         // here you can check if product exists or is valid or whatever
         $users = User::find($id);
-        $this->handleAmi('App\Ami', $id);
-        return redirect()->route('users.index', ['id' => $users->id])->with('success', "Vous avez liké la serie");
+        $this->handleAmi($id);
+        return redirect()->route('user.index', ['id' => $users->id])->with('success', "Vous avez liké la serie");
     }
     else {
-        return redirect()->route('users.index')->with('success', 'Vous devez être connecté pour aimer une série');
+        return redirect()->route('user.index')->with('success', 'Vous devez être connecté pour aimer une série');
     }
     }
 
@@ -42,7 +42,7 @@ class AmiController extends Controller
 
 
         } else {
-            return redirect()->route('users.index');
+            return redirect()->route('user.index');
         }
     }
 }

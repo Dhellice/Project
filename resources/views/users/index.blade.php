@@ -8,6 +8,11 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{session('success')}}
+                            </div>
+                        @endif
                         <h1>Profil</h1>
 
                             <h2>{{Auth::user()->name}}</h2>

@@ -22,10 +22,10 @@ class AmiController extends Controller
         // here you can check if product exists or is valid or whatever
         $users = User::find($id);
         $this->handleAmi($id);
-        return redirect()->route('user.index', ['id' => $users->id])->with('success', "Vous avez liké la serie");
+        return redirect()->route('user.index', ['id' => $users->id])->with('success', "Vous avez rajouté un ami");
     }
     else {
-        return redirect()->route('user.index')->with('success', 'Vous devez être connecté pour aimer une série');
+        return redirect()->route('user.index')->with('success', 'Vous devez être connecté pour ajouter un ami');
     }
     }
 

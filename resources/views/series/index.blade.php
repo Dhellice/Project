@@ -1,9 +1,13 @@
 @extends('layouts.app')
 <style>
-    .block {
-        height:300px;
+    .row{
+        margin-left: 10px;
     }
 
+    .block{
+        padding: 20px;
+    }
+    
     .serie {
         color:white;
     }
@@ -12,15 +16,20 @@
         color:black;
         text-decoration:none;
     }
+
+    .title{
+        text-align: center;
+    }
+    .image{
+        width: 100%;
+        mar
+    }
 </style>
 
 @section('content')
     <div class="container">
         <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Les series</div>
-
-                    <div class="panel-body">
+            <div class="panel-heading">Les series</div>
                         @if(session('success'))
                             <div class="alert alert-success">
                                 {{session('success')}}
@@ -28,15 +37,16 @@
                         @endif
 
                         @forelse($series as $serie)
-                                <div class="col-xs-9 col-md-6 block">
-                                <h1>{{ $serie->name }}</h1>
-                                    <p>@php
+                                <div class="col-xs-5 col-md-4 block">
+                                <h3 class="title">{{ $serie->name }}</h3>
+                                    <img class="image" src="{{ asset('img/' . $serie->image) }}">
+                                    <p><br>   @php
                                            // header('Content-type: text/html; charset=UTF-8');
                                                     $resume = utf8_encode(utf8_decode($serie->resume)) ;
                                                     if(strlen($resume)>=2)
                                                     {
                                                     //on "bride" notre titre a 30 caracteres par exemple
-                                                        $resume=substr($resume,0,220);
+                                                        $resume=substr($resume,0,200);
 
                                                     //on recupere la derniere position de l'espace, ici $espace=28
                                                         $espace=strrpos($resume, ' ');
@@ -53,7 +63,6 @@
                                     Voir la série
                                 </a></button>
                                 </div>
-
                         @empty
                             Rien du tout
                         @endforelse
@@ -61,7 +70,6 @@
                     <div class="text-center">
                         {{$series->links()}}
                     </div>
-                </div>
-        </div>
+
     </div>
 @endsection

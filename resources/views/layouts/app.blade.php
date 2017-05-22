@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -58,12 +58,12 @@
     nav {
         height: 40px;
         width: 100%;
-        background: #455868;
+        background: #bdc3c7;
         font-size: 11pt;
         font-family: 'PT Sans', Arial, sans-serif;
         font-weight: bold;
         position: relative;
-        border-bottom: 2px solid #283744;
+        border-bottom: none;
     }
     nav ul {
         padding: 0;
@@ -78,14 +78,14 @@
     nav a {
         color: #fff;
         display: inline-block;
-        width: 100px;
+        width: 150px;
         text-align: center;
         line-height: 40px;
-        text-shadow: 1px 1px 0px #283744 !important;
+        text-shadow: 1px 1px 0px #2c3e50 !important;
         text-decoration: none !important;
     }
     nav li a {
-        border-right: 1px solid #576979;
+        border-right: 1px solid #bdc3c7;
         box-sizing:border-box;
         -moz-box-sizing:border-box;
         -webkit-box-sizing:border-box;
@@ -94,7 +94,9 @@
         border-right: 0;
     }
     nav a:hover, nav a:active {
-        background-color: #8c99a4 !important;
+        text-decoration: none;
+        border-bottom: 2px solid #337ab7 !important;
+        color: #337ab7;
     }
     nav a#pull {
         display: none;

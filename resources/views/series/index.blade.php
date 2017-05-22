@@ -63,7 +63,6 @@
                                     Voir la série
                                 </a></button>
                                 </div>
-
                         @empty
                             Rien du tout
                         @endforelse

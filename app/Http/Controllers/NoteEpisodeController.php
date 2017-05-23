@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Note;
-use App\Serie;
+use App\Episode;
+use App\NoteEpisode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class NoteController extends Controller
+class NoteEpisodeController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -15,23 +15,21 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Serie $serie)
+    public function store(Episode $episode)
     {
-
         if(Auth::check()) {
-        Note::create([
-            'note' => request('note'),
-            'serie_id' => $serie->id,
-            'user_id' => Auth::user()->id,
+            NoteEpisode::create([
+                'note' => request('note'),
+                'episode_id' => $episode->id,
+                'user_id' => Auth::user()->id,
 
-        ]);
+            ]);
             return back()->with('success', "Vous avez noté l'épisode");
         }
 
         else {
             return back()->with('success', "Vous devez être connecté pour noter l'épisode");
         }
-
     }
 
 }

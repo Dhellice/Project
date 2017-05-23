@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Episode;
+use App\NoteEpisode;
 use App\Saison;
 use App\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EpisodeController extends Controller
 {
@@ -58,13 +60,17 @@ class EpisodeController extends Controller
      */
     public function show($id)
     {
+        $notes = NoteEpisode::all();
          $episode = Episode::find($id);
+        $somme =  DB::table('note_episodes')->where('note_episodes.episode_id', '=', $id)->sum('note_episodes.note');
+        $nombre = DB::table('note_episodes')->where('note_episodes.episode_id', '=', $id)->count();
+
 
         if(!$episode) {
             return redirect()->route('series.index');
         }
 
-        return view('episodes.show', compact('episode', 'serie'));
+        return view('episodes.show', compact('episode', 'notes', 'somme', 'nombre'));
     }
 
     /**

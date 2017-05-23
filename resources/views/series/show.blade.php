@@ -101,14 +101,7 @@
                                     @else
                                     {{ "La moyenne de cette série n'est pas disponible" }}
                                     @endif<br>
-                                {{--@foreach ($notes as $note)--}}
-                                {{--@if ($serie->id == $note->serie_id)--}}
-                                    {{--{{ $Nb = sizeof($note) }}--}}
 
-                                        {{--{{ $note->note }}--}}
-                                        {{--<br>--}}
-                                {{--@endif--}}
-                                {{--@endforeach--}}
                                 <br>
 
                                     <p>{{$serie->resume}}</p>

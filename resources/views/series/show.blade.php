@@ -78,10 +78,26 @@
                             <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
                         <h1 class="title">{{$serie->name}}</h1>
                             <h2> Note de la série :</h2>
-                            <ul class="list-group">
-
                                 @if($nombre > 0)
-                                {{ $somme / $nombre }}
+                                        @if(($somme / $nombre) > 4.5)
+                                            ★★★★★
+                                            ({{$somme / $nombre}})
+                                        @elseif(($somme / $nombre) > 3.5)
+                                             ★★★★
+                                             ({{$somme / $nombre}})
+                                        @elseif(($somme / $nombre) > 2.5)
+                                            ★★★
+                                            ({{$somme / $nombre}})
+                                        @elseif(($somme / $nombre) > 1.5)
+                                            ★★
+                                            ({{$somme / $nombre}})
+                                        @elseif(($somme / $nombre) > 0.5)
+                                            ★
+                                            ({{$somme / $nombre}})
+                                            @else
+                                            Inférieur à 0.5
+                                            ({{$somme / $nombre}})
+                                            @endif
                                     @else
                                     {{ "La moyenne de cette série n'est pas disponible" }}
                                     @endif<br>

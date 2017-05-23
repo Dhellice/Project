@@ -47,7 +47,7 @@
                                     ({{$somme / $nombre}})
                                 @endif
                             @else
-                                {{ "La moyenne de cette série n'est pas disponible" }}
+                                {{ "La moyenne de cet épisode n'est pas disponible" }}
                             @endif<br> <br>
 
                             <li class="list-group-item"><p>{{$episode->resume}}</p></li>

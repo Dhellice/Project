@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gnégné</title>
+        <title>Viewtopee</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -109,7 +109,7 @@
             <div class="content">
                 <i class="fa fa-video-camera" aria-hidden="true"></i>
                 <div class="title m-b-md">
-                    Bienvenue sur gnégné.com
+                    Bienvenue sur Viewtopee
                 </div>
                 <hr>
                 <div class="title2 m-b-md">

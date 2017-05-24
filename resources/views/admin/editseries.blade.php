@@ -8,45 +8,39 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        @if(session('success'))
-                            <div class="alert alert-success">
-                                {{session('success')}}
-                            </div>
-                        @endif
-
-                        <h1>Formulaire de Contact</h1>
-
-                        <form method="POST" class="form-horizontal" action="{{route('contact_store')}}">
-
+                        <form method="POST" class="form-horizontal" action="{{route('admin.updateseries', [$serie->id])}}">
                             {{csrf_field()}}
-
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Name</label>
                                 <div class="col-sm-10">
-                                    <input required type="text" name="name" id='name' class="form-control">
+                                    <input required type="text" class="form-control" id="name" value="{{$serie->name}}" name="name">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="email">E-mail</label>
+                                <label class="control-label col-sm-2" for="resume">Résumé</label>
                                 <div class="col-sm-10">
-                                    <input required type="text" name="email" class="form-control">
+                                    <textarea name="resume" class="form-control" id="resume" cols="30" rows="10">{{$serie->resume}}</textarea>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="message">Message</label>
-                                <div class="col-sm-10">
-                                    <textarea name="message" id="" cols="30" rows="10" class="form-control"></textarea>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-10">
                                     <button type="submit" class="btn btn-primary">Envoyer</button>
                                 </div>
                             </div>
                         </form>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <form method="POST" class="form-horizontal" action="{{route('admin.destroyseries', [$serie->id])}}">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-primary">Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        @include('messages.errors')
                     </div>
                 </div>
             </div>

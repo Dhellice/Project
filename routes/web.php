@@ -34,6 +34,10 @@ Route::get('serie/like/{id}', ['as' => 'serie.like', 'uses' => 'LikeController@l
 Route::post('/series/{serie}/comments', 'CommentsController@store');
 
 
+Route::get('auth/{provider}', ['as' => 'provider.login', 'uses' => 'Auth\RegisterController@redirectToProvider']);
+Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+
+
 Route::get('/contact',
     ['as' => 'contact', 'uses' => 'ContactController@create']);
 Route::post('/contact',

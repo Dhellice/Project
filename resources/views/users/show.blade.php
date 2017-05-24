@@ -43,7 +43,7 @@
 
 
 
-                        <a class="btn btn-default navbar-btn" href="{{route('comments.index')}}">Retour</a>
+                        <a class="btn btn-default navbar-btn" href="{{route('user.index')}}">Retour</a>
                     </div>
                 </div>
             </div>

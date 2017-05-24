@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Http\Requests\ContactFormRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+
+
     public function create()
     {
         return view('form.contact');
@@ -15,22 +20,17 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'message' => 'required'
-        ],
-            [
-                'content.required' => 'Content obligatoire'
-            ]);
+        $data = Input::all();
 
-        Contact::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'message' => $request->message
-        ]);
+
+            Mail::send('form.hello', $data, function($message) use ($data)
+            {
+                $message->from($data['email'] , $data['name']);
+                $message->to('margaux.dubezin@gmail.com', 'Margaux dubezin')->cc('margaux.dubezin@gmail.com')->subject('contact request');
+
+            });
 
         return redirect()->route('contact')
-            ->with('success', 'Formulaire envoyé');
+        ->with('success', 'Votre mail a bien été envoyé, une réponse vous sera apportée le plus rapidement possible');
     }
 }

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gnégné</title>
+        <title>Viewtopee</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -109,15 +109,15 @@
             <div class="content">
                 <i class="fa fa-video-camera" aria-hidden="true"></i>
                 <div class="title m-b-md">
-                    Bienvenue sur gnégné.com
+                    Bienvenue sur Viewtopee
                 </div>
                 <hr>
                 <div class="title2 m-b-md">
                     Inscrivez vous ou connectez vous via vos réseaux sociaux :
                 </div>
                 <div class="links">
-                    <button type="button" class="btn btnh1 btn-default"><a href="" class="btnc">Facebook</a></button><br><br>
-                    <button type="button" class="btn btnh2 btn-default"><a href="" class="btnc">Twitter</a></button><br><br>
+                    <button type="button" class="btn btnh1 btn-default"><a href="{{route('provider.login', ['provider' => 'facebook'])}}" class="btnc">Facebook</a></button><br><br>
+                    <button type="button" class="btn btnh2 btn-default"><a href="{{route('provider.login', ['provider' => 'twitter'])}}" class="btnc">Twitter</a></button><br><br>
                     <button type="button" class="btn btnh3 btn-default"><a href="{{route('login')}}" class="btnc">Connexion</a></button><br><br>
                 </div>
                 <hr>

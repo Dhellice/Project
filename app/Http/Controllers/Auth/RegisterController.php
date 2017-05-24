@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\SocialProvider;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\SocialiteManager;
+
 
 class RegisterController extends Controller
 {
@@ -68,4 +72,42 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider)
+    {
+        try{
+            $socialUser = Socialite::driver($provider)->user();
+        }
+        catch(\Exception $e){
+            return redirect('/');
+        }
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName()]
+            );
+
+            $user->socialProviders()->create(
+                ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
+
+        }
+        else
+            $user = $socialProvider->user;
+
+        auth()->login($user);
+        return redirect('/series');
+
+    }
+
+
 }

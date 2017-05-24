@@ -16,7 +16,7 @@
 
                         <h1>Formulaire de Contact</h1>
 
-                        <form method="POST" class="form-horizontal" action="{{route('contact')}}">
+                        <form method="POST" class="form-horizontal" action="{{route('contact_store')}}">
 
                             {{csrf_field()}}
 

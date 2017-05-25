@@ -58,6 +58,44 @@
             opacity: 1;
             right: 0;
         }
+        .button {
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.2, 1);
+        }
+        .button:before, .button:after {
+            position: absolute;
+            content: "";
+            display: block;
+        }
+        .button:before {
+            top: -120px;
+            left: 50px;
+            z-index: -1;
+            width: calc(100% + 140px);
+            height: 100px;
+            -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.2, 1);
+            -webkit-transform: skew(70deg);
+            transform: skew(70deg);
+            background: #a94442;
+        }
+        .button:after {
+            top: 0;
+            left: 0;
+            z-index: -2;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+        }
+        .button:hover:before {
+            left: -50px;
+            top: -20px;
+        }
     </style>
 </head>
 <body id="inscription">
@@ -117,6 +155,13 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Mot de passe oublié ?
                                 </a>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button class="btn btn-primary button" onclick="history.go(-1)" target="_blank" style="border: none!important; margin-left: 1%;margin-top: 2%">
+                                        <span>Retour</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

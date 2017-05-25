@@ -27,6 +27,9 @@ Route::resource('/ami', 'AmiController');
 Route::post('/series/{serie}/notes', 'NoteController@store');
 Route::post('/episodes/{episode}/notes', 'NoteEpisodeController@store');
 
+Route::get('/categories/{categories}', ['as' => 'categories.show', 'uses' => 'CategorieController@show']);
+
+
 Route::get('/admin', ['as' => 'admin.index', 'uses' => 'AdminController@index']);
 Route::get('/admin/series', ['as' => 'admin.series', 'uses' => 'AdminController@showseries']);
 Route::get('/admin/series/create', ['as' => 'admin.createseries', 'uses' => 'AdminController@createseries']);

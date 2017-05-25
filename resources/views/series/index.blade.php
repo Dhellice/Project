@@ -22,7 +22,7 @@
     }
     .image{
         width: 100%;
-        mar
+
     }
 </style>
 

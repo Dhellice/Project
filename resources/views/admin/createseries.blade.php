@@ -24,6 +24,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="image">Image</label>
+                                <input type="file" name="image" id="image">
+                            </div>
+
 
 
                             <div class="form-group">

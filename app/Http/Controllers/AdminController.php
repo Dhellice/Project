@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comments;
+use Auth;
+use Image;
 use App\Serie;
 use App\User;
 use Illuminate\Http\Request;
@@ -33,8 +35,19 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createseries()
+    public function createseries(Request $request)
     {
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+
+            Image::make($image)->resize(1280, 720)->save( public_path('/img' . $filename ));
+
+            $serie = Serie::All();
+            $serie->image = $filename;
+            $serie->save();
+
+        }
         return view('admin.createseries');
     }
 

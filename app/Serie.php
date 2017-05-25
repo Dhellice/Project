@@ -29,7 +29,10 @@ class Serie extends Model
     {
         return $this->hasMany('App\Note');
     }
-
+    public function categorie()
+    {
+        return $this->belongsTo('App\Categorie');
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +40,6 @@ class Serie extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'resume'
+        'name', 'resume', "categorie_id"
     ];
 }

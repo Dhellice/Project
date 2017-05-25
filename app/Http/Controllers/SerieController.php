@@ -19,6 +19,7 @@ class SerieController extends Controller
         //
         $series = Serie::paginate(15);
 
+
         return view('series.index', ['series' => $series]);
     }
 

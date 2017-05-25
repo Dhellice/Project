@@ -71,6 +71,8 @@ class SerieController extends Controller
 
         $notes = Note::all();
         $serie = Serie::find($id);
+        $nbrelikes = DB::table('likeables')->where('likeables.likeable_id', '=', $id)->count();
+        $nbrecomments = DB::table('comments')->where('comments.serie_id', '=', $id)->count();
         $somme =  DB::table('notes')->where('notes.serie_id', '=', $id)->sum('notes.note');
         $nombre = DB::table('notes')->where('notes.serie_id', '=', $id)->count();
 
@@ -78,7 +80,7 @@ class SerieController extends Controller
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie', 'notes', 'somme', 'nombre'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments'));
     }
 
     /**

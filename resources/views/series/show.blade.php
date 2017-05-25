@@ -77,7 +77,8 @@
                         @endif
                             <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
                         <h1 class="title">{{$serie->name}}</h1>
-                            <h2> Note de la série :</h2>
+                            <h3> Nombre de likes : {{ $nbrelikes }}</h3>
+                            <h3> Note de la série :</h3>
                                 @if($nombre > 0)
                                         @if(($somme / $nombre) > 4.5)
                                             ★★★★★
@@ -207,6 +208,7 @@
 
                             <div class="comments">
                                 <ul class="list-group">
+                                    <h3> Nombre de commentaires : {{ $nbrecomments }}</h3>
                                     @foreach ($serie->comments as $comment)
                                         <li class="list-group-item">
                                             <strong>

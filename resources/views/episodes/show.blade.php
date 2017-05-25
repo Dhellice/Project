@@ -8,6 +8,11 @@
         color:darkslateblue;
     }
 
+    .image_serie {
+        width:80%;
+        margin: 0 auto;
+    }
+
 </style>
 @extends('layouts.app')
 
@@ -24,7 +29,21 @@
                                 {{session('success')}}
                             </div>
                         @endif
-                        <li class="list-group-item"><h1>{{$episode->name}}</h1> </li> <br>
+
+                            @foreach($saisons as $saison)
+                                @foreach($series as $serie)
+                                    @if ($serie->id == $saison->serie_id)
+                                        <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            <br><br>
+
+                            <li class="list-group-item"><h1>{{$episode->name}}</h1></li>
+
+                            <li class="list-group-item"><p>{{$episode->resume}}</p></li>
+                            <hr>
+
                             <h2> Note de l'épisode :</h2>
                             @if($nombre > 0)
                                 @if(($somme / $nombre) > 4.5)
@@ -48,10 +67,7 @@
                                 @endif
                             @else
                                 {{ "La moyenne de cet épisode n'est pas disponible" }}
-                            @endif<br> <br>
-
-                            <li class="list-group-item"><p>{{$episode->resume}}</p></li>
-                            <hr>
+                            @endif<br><br>
 
                             @if(Auth::check())
                                 <div class="rating" >
@@ -74,7 +90,7 @@
                                         <input name="note" type="radio" value="5" id="5" class="etoile"  style="visibility:hidden">
                                     </form>
                                 </div>
-                            @endif
+                            @endif<br><br>
 
                             <a href="{{route('series.index')}}">Retour</a>
                             <a class="btn btn-primary" href="{{route('episodes.show', ['id' => $episode->id - 1])}}"> Épisode précédent </a>

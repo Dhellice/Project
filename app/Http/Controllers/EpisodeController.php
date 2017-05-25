@@ -61,16 +61,17 @@ class EpisodeController extends Controller
     public function show($id)
     {
         $notes = NoteEpisode::all();
-         $episode = Episode::find($id);
+        $episode = Episode::find($id);
         $somme =  DB::table('note_episodes')->where('note_episodes.episode_id', '=', $id)->sum('note_episodes.note');
         $nombre = DB::table('note_episodes')->where('note_episodes.episode_id', '=', $id)->count();
-
+        $saisons = DB::table('saisons')->where('saisons.id', '=', $episode->saison_id)->get();
+        $series = Serie::all();
 
         if(!$episode) {
             return redirect()->route('series.index');
         }
 
-        return view('episodes.show', compact('episode', 'notes', 'somme', 'nombre'));
+        return view('episodes.show', compact('episode', 'notes', 'somme', 'nombre', 'series', 'saisons'));
     }
 
     /**

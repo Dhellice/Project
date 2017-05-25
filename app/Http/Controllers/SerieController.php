@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\Note;
 use App\serie;
 use Illuminate\Http\Request;
@@ -18,9 +19,10 @@ class SerieController extends Controller
     {
         //
         $series = Serie::paginate(15);
+        $categories = Categorie::all();
 
 
-        return view('series.index', ['series' => $series]);
+        return view('series.index', ['series' => $series, 'categories' => $categories]);
     }
 
     /**

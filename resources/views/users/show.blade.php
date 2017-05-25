@@ -19,6 +19,8 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <strong>
+                                    @foreach($users as $user)
+                                            @if ($user->id == $ami->ami_id)
                                         <h2>{{$user->name}}</h2>
                                         <p>{{$user->created_at}}</p>
                                     </strong>
@@ -31,9 +33,14 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                    @endforeach<br>
+
+
+                                    <a class="btn btn-primary" href="{{route('ami.edit', ['id' => $ami->id])}}">
+                                        Supprimer des amis </a>
+                                        @endif
                                     @endforeach
                                 </li>
-
 
                             </ul>
                         </div>

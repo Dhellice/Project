@@ -35,11 +35,14 @@
                                 {{session('success')}}
                             </div>
                         @endif
+            @foreach($categories as $categorie)
+                {{$categorie->name}}
             @foreach ($categorie->serie as $serie)
                 <li class="list-group-item menuderoulant2">
                     <a href="{{route('series.show', ['id' => $serie->id])}}"> {{ $serie->name }} </a>
                 </li>
                 </li>
+            @endforeach
             @endforeach
                         @forelse($series as $serie)
                                 <div class="col-xs-5 col-md-4 block">

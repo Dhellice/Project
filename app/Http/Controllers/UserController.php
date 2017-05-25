@@ -30,8 +30,6 @@ class UserController extends Controller
         $likeables = Like::all();
         $amis = Ami::all();
 
-
-
         return view('users.index', ['users' => $users, 'likeables' => $likeables, 'series' => $series, 'amis' => $amis]);
 
     }

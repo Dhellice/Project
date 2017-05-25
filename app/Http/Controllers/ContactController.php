@@ -26,7 +26,11 @@ class ContactController extends Controller
             Mail::send('form.hello', $data, function($message) use ($data)
             {
                 $message->from($data['email'] , $data['name']);
+<<<<<<< HEAD
                 $message->to('danicourt.louise@gmail.com', 'Louise Danicourt')->cc('danicourt.louise@gmail.com')->subject('contact request');
+=======
+                $message->to('margaux.dubezin@gmail.com', 'Margaux dubezin')->cc('margaux.dubezin@gmail.com')->subject('Contact Viewtopee');
+>>>>>>> 3ac6aa9db5a09244cdf8d26535fafef58e22b4ae
 
             });
 

@@ -36,6 +36,7 @@ class UserController extends Controller
         return view('users.index', ['users' => $users, 'likeables' => $likeables, 'series' => $series, 'amis' => $amis]);
 
     }
+<<<<<<< HEAD
 
 
     /**
@@ -57,6 +58,9 @@ class UserController extends Controller
 
         return view('users.show', compact('user', 'likeables', 'series'));
     }
+=======
+    public function show(){}
+>>>>>>> 60a2d27dd35877d1a12a75a09a35eb037cb6c27f
 
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){

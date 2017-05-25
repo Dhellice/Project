@@ -49,7 +49,7 @@
                                 @if (Auth::user()->id == $ami->user_id)
                                     @foreach ($users as $user)
                                         @if ($user->id == $ami->ami_id)
-                                                <a class="btn btn-default navbar-btn" href="{{route('user.show', ['id' => $user->id])}}">{{ $user->name }}</a>
+                                                <a class="btn btn-default navbar-btn" href="{{route('ami.show', ['id' => $ami->id])}}}">{{ $user->name }}</a>
                                         @endif
                                     @endforeach
                                 @endif

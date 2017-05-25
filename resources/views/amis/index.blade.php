@@ -11,7 +11,7 @@
 
 
             @forelse($users as $user)
-                @if ( Auth::user()->id != $user->id )
+                @if (Auth::user()->id != $user->id )
 
                 <div class="col-xs-5 col-md-4 block">
                     <h3 class="title">{{ $user->name }}</h3>

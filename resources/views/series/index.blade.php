@@ -24,22 +24,28 @@
         width: 100%;
 
     }
+    .list-group{
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
 </style>
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="panel-heading">Les series</div>
+            <div class="panel-heading"><h1>Les series</h1></div>
                         @if(session('success'))
                             <div class="alert alert-success">
                                 {{session('success')}}
                             </div>
                         @endif
-            <li class="list-group-item">
+            <ul class="list-group">
             @foreach($categories as $categorie)
                     <button class="btn btn-primary"><a class="serie" href="{{route('categories.show', ['id' => $categorie->id])}}">{{$categorie->name}}</a></button>
             @endforeach
-            </li>
+            </ul>
             </div>
 
                         @forelse($series as $serie)

@@ -1,7 +1,20 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Viewtopee</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <script src="https://use.fontawesome.com/0a2d5cb410.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
     .container{
-        margin-top: 12% !important;
+        margin-top: 8% !important;
     }
     #inscription{
         background-color: #7f8c8d !important;
@@ -16,7 +29,6 @@
         background-color:#a94442 !important;
         border: #a94442 !important;
         border: none;
-        padding: 20px;
         width: 200px;
         transition: all 0.5s;
     }
@@ -51,7 +63,6 @@
         text-decoration: none;
         color: #fff;
         display: inline-block;
-        padding: 15px 20px;
         position: relative;
         z-index: 1;
         overflow: hidden;
@@ -88,8 +99,7 @@
     }
 
 </style>
-@section('content')
-
+</head>
 <body id="inscription">
 <div class="container" style="margin-top: 10%;">
     <div class="row">
@@ -171,4 +181,5 @@
     </div>
 </div>
 </body>
-@endsection
+</body>
+</html>

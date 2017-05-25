@@ -55,6 +55,10 @@
 
     /* Basic Styles */
 
+    body{
+        margin-top: 40px;
+    }
+
     nav {
         height: 40px;
         width: 100%;

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Image;
+use Auth;
 use App\Like;
 use App\Serie;
 use App\User;
 use App\Ami;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -34,6 +37,7 @@ class UserController extends Controller
 
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -54,6 +58,22 @@ class UserController extends Controller
         return view('users.show', compact('user', 'likeables', 'series'));
     }
 
+    public function update_avatar(Request $request){
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
 
+            Image::make($avatar)->resize(300, 300)->save( public_path('img/avatars/' . $filename ));
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        $series = Serie::all();
+        $users = User::all();
+        $likeables = Like::all();
+        $amis = Ami::all();
+        return view('users.index', array('user' => Auth::user()), ['users' => $users, 'likeables' => $likeables, 'series' => $series, 'amis' => $amis] );
+    }
 
 }

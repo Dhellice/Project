@@ -15,9 +15,17 @@
                         @endif
                         <h1>Profil</h1>
 
-                            <h2>{{Auth::user()->name}}</h2>
+                            <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px">
+                                <h2>{{Auth::user()->name}}</h2>
                             <p>{{Auth::user()->email}}</p>
                              <p>{{Auth::user()->created_at}}</p>
+
+<br>                    <form enctype="multipart/form-data" action="user" method="POST">
+                                <label>Update Profile Image</label>
+                                <input type="file" name="avatar">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                            </form>
 
                         <h3> Séries Préférées :</h3>
                         @foreach ($likeables as $likeable)

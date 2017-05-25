@@ -101,8 +101,9 @@
                                     @else
                                     {{ "La moyenne de cette série n'est pas disponible" }}
                                     @endif<br>
-
-                                <br>
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox_fxn8"></div>
+                            <br>
 
                                     <p>{{$serie->resume}}</p>
 

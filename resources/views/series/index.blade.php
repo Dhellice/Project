@@ -35,6 +35,12 @@
                                 {{session('success')}}
                             </div>
                         @endif
+            <li class="list-group-item">
+            @foreach($categories as $categorie)
+                    <button class="btn btn-primary"><a class="serie" href="{{route('categories.show', ['id' => $categorie->id])}}">{{$categorie->name}}</a></button>
+            @endforeach
+            </li>
+            </div>
 
                         @forelse($series as $serie)
                                 <div class="col-xs-5 col-md-4 block">

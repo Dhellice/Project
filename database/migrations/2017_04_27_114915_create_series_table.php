@@ -15,6 +15,7 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('categorie_id')->unsigned();
             $table->string('name');
             $table->string('image')->nullable();
             $table->string('resume');

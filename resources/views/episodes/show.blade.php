@@ -29,22 +29,22 @@
                             @if($nombre > 0)
                                 @if(($somme / $nombre) > 4.5)
                                     ★★★★★
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @elseif(($somme / $nombre) > 3.5)
                                     ★★★★
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @elseif(($somme / $nombre) > 2.5)
                                     ★★★
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @elseif(($somme / $nombre) > 1.5)
                                     ★★
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @elseif(($somme / $nombre) > 0.5)
                                     ★
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @else
                                     Inférieur à 0.5
-                                    ({{$somme / $nombre}})
+                                    (Note moyenne : {{$somme / $nombre}} -- Nombre de votes : {{$nombre}})
                                 @endif
                             @else
                                 {{ "La moyenne de cet épisode n'est pas disponible" }}

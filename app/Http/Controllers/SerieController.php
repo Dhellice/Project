@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\Note;
 use App\serie;
 use Illuminate\Http\Request;
@@ -18,8 +19,10 @@ class SerieController extends Controller
     {
         //
         $series = Serie::paginate(15);
+        $categories = Categorie::all();
 
-        return view('series.index', ['series' => $series]);
+
+        return view('series.index', ['series' => $series, 'categories' => $categories]);
     }
 
     /**
@@ -68,6 +71,8 @@ class SerieController extends Controller
 
         $notes = Note::all();
         $serie = Serie::find($id);
+        $nbrelikes = DB::table('likeables')->where('likeables.likeable_id', '=', $id)->count();
+        $nbrecomments = DB::table('comments')->where('comments.serie_id', '=', $id)->count();
         $somme =  DB::table('notes')->where('notes.serie_id', '=', $id)->sum('notes.note');
         $nombre = DB::table('notes')->where('notes.serie_id', '=', $id)->count();
 
@@ -75,7 +80,7 @@ class SerieController extends Controller
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie', 'notes', 'somme', 'nombre'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments'));
     }
 
     /**

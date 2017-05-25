@@ -72,7 +72,7 @@
     nav ul {
         padding: 0;
         margin: 0 auto;
-        width: 600px;
+        width: 700px;
         height: 40px;
     }
     nav li {
@@ -186,6 +186,7 @@
                     <li><a href="{{ route('user.index') }}">Profil</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }} ">Forum</a></li>
+                    <li><a href="{{ route('ami.index') }} ">Ajout Ami</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>

@@ -33,6 +33,11 @@
                     {{session('success')}}
                 </div>
             @endif
+            <br>
+                    <button class="btn btn-primary button" onclick="history.go(-1)" target="_blank" style="border: none!important;">
+                        <span>Retour</span>
+                    </button>
+            <br>
     <h2>{{$categorie->name}}</h2>
     @foreach ($categorie->serie as $serie)
                 <div class="col-xs-5 col-md-4 block">

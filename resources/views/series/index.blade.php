@@ -45,9 +45,43 @@
         -o-transform:scale(1.25); /* Opera */
         transform:scale(1.25);
     }
-    /* just apply some height and width to the wrapper.*/
     .mg-image {
         overflow: hidden;
+    }
+
+    .button-two {
+        border-radius: 4px;
+        background-color:#a94442 !important;
+        border: #a94442 !important;
+        border: none;
+        width: 140px;
+        transition: all 0.5s;
+    }
+
+
+    .button-two span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button-two span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button-two:hover span {
+        padding-right: 25px;
+    }
+
+    .button-two:hover span:after {
+        opacity: 1;
+        right: 0;
     }
 </style>
 
@@ -68,7 +102,7 @@
             </div>
                         @forelse($series as $serie)
 
-                                <div class="col-xs-5 col-md-4 block">
+                                <div class="col-xs-5 col-md-4 block well" style="">
                                 <h3 class="title">{{ $serie->name }}</h3>
                                     <div class="mg-image"><img class="image" src="{{ asset('img/' . $serie->image) }}"></div>
                                     <p><br>   @php
@@ -90,16 +124,15 @@
                                                     echo $resume;
 
                                         @endphp</p>
-                                <br><button class="btn btn-primary" ><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
-                                    Voir la série
+                                <br><button class="btn btn-primary button-two" style="margin-left: 28%;"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
+                                            <span>Voir la série</span>
                                 </a></button>
                                 </div>
                         @empty
                             Rien du tout
                         @endforelse
-
-                    <div class="text-center">
-                        {{$series->links()}}
-                    </div>
+    </div>
+    <div class="text-center">
+        {{$series->links()}}
     </div>
 @endsection

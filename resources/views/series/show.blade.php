@@ -228,7 +228,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            
+
                             @if(Auth::check())
 
                                         <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>

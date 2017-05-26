@@ -83,19 +83,19 @@
                 <div class="col-md-6">
                     <h3> Mes Séries Préférées :</h3>
                    <ul>
-                       <li>@foreach ($likeables as $likeable)
+                       @foreach ($likeables as $likeable)
                         @if (Auth::check())
                             @if (Auth::user()->id == $likeable->user_id)
                                 @foreach ($series as $serie)
                                     @if ($serie->id == $likeable->likeable_id)
-                                                        {{ $serie->name }} <br>
+                                           <li style="line-height: 20px;"> {{ $serie->name }}</li>
                                     @endif
                                 @endforeach
                             @endif
                         @else
                         @endif
                     @endforeach
-                       </li>
+
                    </ul>
                 </div>
                 <div class="col-md-6">

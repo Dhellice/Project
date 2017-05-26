@@ -30,6 +30,25 @@
     h1{
         text-align: center;
     }
+    .mg-image img {
+        -webkit-transition: all 1s ease; /* Safari and Chrome */
+        -moz-transition: all 1s ease; /* Firefox */
+        -o-transition: all 1s ease; /* IE 9 */
+        -ms-transition: all 1s ease; /* Opera */
+        transition: all 1s ease;
+        max-width: 100%;
+    }
+    .mg-image:hover img {
+        -webkit-transform:scale(1.25); /* Safari and Chrome */
+        -moz-transform:scale(1.25); /* Firefox */
+        -ms-transform:scale(1.25); /* IE 9 */
+        -o-transform:scale(1.25); /* Opera */
+        transform:scale(1.25);
+    }
+    /* just apply some height and width to the wrapper.*/
+    .mg-image {
+        overflow: hidden;
+    }
 </style>
 
 @section('content')
@@ -51,7 +70,7 @@
 
                                 <div class="col-xs-5 col-md-4 block">
                                 <h3 class="title">{{ $serie->name }}</h3>
-                                    <img class="image" src="{{ asset('img/' . $serie->image) }}">
+                                    <div class="mg-image"><img class="image" src="{{ asset('img/' . $serie->image) }}"></div>
                                     <p><br>   @php
                                            // header('Content-type: text/html; charset=UTF-8');
                                                     $resume = utf8_encode(utf8_decode($serie->resume)) ;
@@ -71,7 +90,7 @@
                                                     echo $resume;
 
                                         @endphp</p>
-                                <br><button class="btn btn-primary"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
+                                <br><button class="btn btn-primary" ><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                     Voir la série
                                 </a></button>
                                 </div>

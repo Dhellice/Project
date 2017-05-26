@@ -8,7 +8,7 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        <form method="POST" class="form-horizontal" action="{{route('admin.storeseries')}}">
+                        <form method="POST" enctype="multipart/form-data" class="form-horizontal" action="{{route('admin.storeseries')}}">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Nom</label>

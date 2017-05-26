@@ -41,12 +41,11 @@ class AdminController extends Controller
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->resize(1280, 720)->save( public_path('/img' . $filename ));
+            Image::make($image)->save( public_path('img/' . $filename ));
 
             $serie = Serie::All();
             $serie->image = $filename;
             $serie->save();
-
         }
         return view('admin.createseries');
     }

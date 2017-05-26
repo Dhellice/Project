@@ -1,10 +1,5 @@
 @extends('layouts.app')
 <style>
-    .well{
-        width: 190px;
-        height: 190px;
-        background-color: #a94442 !important;
-    }
     .image{
     }
     .info{
@@ -17,7 +12,7 @@
     br{
         content: "";
         display: block;
-        margin-bottom: -1.6em;
+        margin-bottom: -1em;
     }
 
     hr.style {
@@ -51,16 +46,14 @@
                             </div>
                         @endif
                         <h1>Mon Profil :</h1>
-                            <div class="well">
-                                <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px">
-                            </div>
+                                <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px;box-shadow: 5px 5px 5px 5px #a94442;">
                     </div>
             </div>
                 <div class="col-md-8 info">
                     <h1>Mes Informations :</h1>
-                    <h3 class="alignement">Nom : </h3> <h2 class="alignement">{{Auth::user()->name}}</h2><hr class="style"><br>
-                    <h3 class="alignement">E-Mail : </h3><p class="alignement">{{Auth::user()->email}}</p><hr class="style"><br>
-                    <h3 class="alignement">Date de création : </h3><p class="alignement">{{Auth::user()->created_at}}</p>
+                    <h4 class="alignement">Nom : </h4> <p class="alignement">{{Auth::user()->name}}</p><hr class="style"><br>
+                    <h4 class="alignement">E-Mail : </h4><p class="alignement">{{Auth::user()->email}}</p><hr class="style"><br>
+                    <h4 class="alignement">Date de création : </h4><p class="alignement">{{Auth::user()->created_at}}</p>
                 </div>
         </div>
     </div>

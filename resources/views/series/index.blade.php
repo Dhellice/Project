@@ -47,8 +47,8 @@
             @endforeach
             </ul>
             </div>
-
                         @forelse($series as $serie)
+
                                 <div class="col-xs-5 col-md-4 block">
                                 <h3 class="title">{{ $serie->name }}</h3>
                                     <img class="image" src="{{ asset('img/' . $serie->image) }}">
@@ -78,10 +78,9 @@
                         @empty
                             Rien du tout
                         @endforelse
-                    </div>
+
                     <div class="text-center">
                         {{$series->links()}}
                     </div>
-
     </div>
 @endsection

@@ -1,8 +1,4 @@
 <style>
-    .image_serie {
-        width:80%;
-        margin: 0 auto;
-    }
     .title{
         font-size: 50px;
         text-align: center;
@@ -21,8 +17,9 @@
         border-top-right-radius: 5px;
     }
     #noms{
-        width: 170px;
+        width: 150px;
         font-size: 10px;
+        background-color: #7D8DA4;
     }
 
     .menuderoulant {
@@ -58,16 +55,74 @@
         color:darkslateblue;
     }
 
-    </style>
+    .alignement{
+        display: inline-block;
+    }
+
+    section {
+        width: 50%;
+        height: 15em;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #2980b9;
+        -moz-border-radius: 0.5em;
+        -webkit-border-radius: 0.5em;
+        border-radius: 0.5em;
+    }
+    section img {
+        position: relative;
+        max-height: 100%;
+        left: 50%;
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    @media (min-width: 800px) {
+        section img {
+            top: 50%;
+            left: 0;
+            max-height: none;
+            width: 100%;
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+    }
+
+    .resumer{
+        width: 50%;
+        margin-left: 25%;
+        margin-top: -5%;
+    }
+    hr.style {
+        height: 30px;
+        border-style: solid;
+        border-color: #8c8b8b;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+        width: 50%;
+        margin-top: 50px;
+    }
+    hr.style:before {
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: #8c8b8b;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+    }
+
+
+</style>
 
     @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+
 
                     <div class="panel-body">
                         @if(session('success'))
@@ -75,10 +130,10 @@
                                 {{session('success')}}
                             </div>
                         @endif
-                            <img class="image_serie img-responsive" src="{{ asset('img/' . $serie->image) }}">
+                           <section> <img src="{{ asset('img/' . $serie->image) }}"></section><hr class="style">
                         <h1 class="title">{{$serie->name}}</h1>
-                            <h3> Nombre de likes : {{ $nbrelikes }}</h3>
-                            <h3> Note de la série :</h3>
+                            <h3 class="text-center"> Nombre de likes : {{ $nbrelikes }}</h3>
+                            <h3 class="text-center"> Note de la série :
                                 @if($nombre > 0)
                                         @if(($somme / $nombre) > 4.5)
                                             ★★★★★
@@ -101,12 +156,12 @@
                                             @endif
                                     @else
                                     {{ "La moyenne de cette série n'est pas disponible" }}
-                                    @endif<br>
+                                    @endif</h3><hr class="style"><br>
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
                             <div class="addthis_inline_share_toolbox_fxn8"></div>
                             <br>
 
-                                    <p>{{$serie->resume}}</p>
+                                   <div class="well resumer"> <p>{{$serie->resume}}</p></div>
 
                             @foreach ($serie->saison as $saison)
                                 <ul class="list-group menuderoulant">
@@ -147,8 +202,8 @@
 
 
                                 <div class="rating" >
-                                    <h3>Noter la série</h3>
-                                    <form id="test" method="POST" action="/series/{{ $serie->id }}/notes" onchange="document.getElementById('test').submit();">
+                                    <h3 class="text-center">Noter cette série
+                                    <form style="padding-top: 20px;" id="test" method="POST" action="/series/{{ $serie->id }}/notes" onchange="document.getElementById('test').submit();">
                                     {{csrf_field()}}
                                             <label for="1">★</label>
                                             <input name="note" type="radio" value="1" id="1" class="etoile" style="visibility:hidden">
@@ -164,13 +219,13 @@
 
                                             <label for="5">★</label>
                                             <input name="note" type="radio" value="5" id="5" class="etoile"  style="visibility:hidden">
-                                    </form>
+                                    </form></h3>
                                 </div>
 
                             @endif
 
 
-                            <h1>Personnages</h1>
+                            <h1 class="text-center">Personnages :</h1>
                             @foreach ($serie->personnage as $personnage)
                                 <div class="perso">
                                 <img class="image_perso" src="{{ asset('img/' . $personnage->image) }}">
@@ -182,10 +237,31 @@
 
 
                         <hr>
-                            <a class="btn btn-default navbar-btn" href="{{route('series.index')}}">Retour</a>
-                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id - 1])}}"> Série précédente </a>
-                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id + 1])}}"> Série suivante </a>
 
+                        <h3 class="text-center">Section commentaire : </h3>
+
+                            <div class="comments">
+                                <ul class="list-group">
+                                    <h3> Nombres de commentaires : {{ $nbrecomments }}</h3>
+                                    @foreach ($serie->comments as $comment)
+                                        <li class="list-group-item">
+                                            <strong>
+                                                {{ $comment->created_at->diffForHumans() }}
+                                            </strong>
+                                            {{ $comment->message }}<br>
+                                            @if (Auth::check())
+                                                @if (Auth::user()->id == $comment->user_id)
+                                                    <a href="{{route('comments.edit', ['id' => $comment->id])}}">
+                                                        Modifier le commentaire
+                                                    </a>
+                                                @endif
+                                            @else
+                                            @endif
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
                         <div class="card">
                             <div class="card-block">
                                 @if(Auth::check())
@@ -210,34 +286,10 @@
 
                         <hr>
 
-                            <div class="comments">
-                                <ul class="list-group">
-                                    <h3> Nombre de commentaires : {{ $nbrecomments }}</h3>
-                                    @foreach ($serie->comments as $comment)
-                                        <li class="list-group-item">
-                                            <strong>
-                                                {{ $comment->created_at->diffForHumans() }}
-                                            </strong>
-                                            {{ $comment->message }}<br>
-                                            @if (Auth::check())
-                                                    @if (Auth::user()->id == $comment->user_id)
-                                                    <a href="{{route('comments.edit', ['id' => $comment->id])}}">
-                                                        Modifier le commentaire
-                                                    </a>
-                                                        @endif
-                                                @else
-                                            @endif
-                                        </li>
-                                    @endforeach
 
-                                </ul>
-                            </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <a class="btn btn-default navbar-btn" href="{{route('series.index')}}">Retour</a>
+                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id - 1])}}"> Série précédente </a>
+                            <a class="btn btn-primary" href="{{route('series.show', ['id' => $serie->id + 1])}}"> Série suivante </a>
 
 @endsection
 

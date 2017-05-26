@@ -8,7 +8,7 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        <form method="POST" enctype="multipart/form-data" class="form-horizontal" action="{{route('admin.storeseries')}}">
+                        <form method="POST" class="form-horizontal" action="{{route('admin.storeseries')}}">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Nom</label>
@@ -23,13 +23,6 @@
                                     <textarea name="resume" id="resume" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="image">Image</label>
-                                <input type="file" name="image" id="image">
-                            </div>
-
-
 
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-10">

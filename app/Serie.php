@@ -40,6 +40,6 @@ class Serie extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'resume', "categorie_id", 'image'
+        'name', 'resume', "categorie_id",
     ];
 }

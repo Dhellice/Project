@@ -118,7 +118,18 @@
 
 
 </style>
-
+<script type="text/javascript">
+    function catsel(sel) {
+        //if (sel.value=="-1" ) return;
+        var opt=sel.getElementsByTagName("option" );
+        for (var i=0; i<opt.length; i++) {
+            var x=document.getElementById(opt[i].value);
+            if (x) x.style.display="none";
+        }
+        var cat = document.getElementById(sel.value);
+        if (cat) cat.style.display="block";
+    }
+</script>
     @extends('layouts.app')
 
 @section('content')
@@ -179,23 +190,45 @@
                                 </ul>
                             @endforeach
 
-                            <select>
-                                @foreach ($serie->saison as $saison)
-                                    <option onselect="episodes()"> {{$saison->name}}</option>
-                                @endforeach
-                            </select>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Choissisez la saison :
+                                    </td>
+                                    <td>
+                                        <select onchange="catsel(this)">
+                                            <!--<option value="-1">None</option>!-->
+                                            <option value="1">Choix 1</option>
+                                            <option value="2">Choix 2</option>
+                                            <option value="3">Choix 3</option>
+                                            <option value="4">Choix 4</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div id="1" style="display:block">
+                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 1</td></tr></table>
+                                        </div>
+                                        <div id="2" style="display:none">
+                                            @foreach ($serie->saison as $saison)
+                                                        {{ $saison->name }}
+                                                    @foreach ($saison->episode as $episode)
+                                                            <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
+
+                                                    @endforeach
+                                            @endforeach
+                                        </div>
+                                        <div id="3" style="display:none">
+                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 3</td></tr></table>
+                                        </div>
+                                        <div id="4" style="display:none">
+                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 4</td></tr></table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                             
-                            <script>
-
-                            </script>
-
-                            <script>
-                                function episodes(){
-
-                                }
-                            </script>
-
-
                             @if(Auth::check())
 
                                         <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>

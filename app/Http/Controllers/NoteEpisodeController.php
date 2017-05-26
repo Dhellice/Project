@@ -17,7 +17,8 @@ class NoteEpisodeController extends Controller
      */
     public function store(Episode $episode)
     {
-        if(Auth::check()) {
+        $existing_note = NoteEpisode::whereEpisodeId($episode->id)->whereUserId(Auth::id())->first();
+        if(Auth::check() && !$existing_note) {
             NoteEpisode::create([
                 'note' => request('note'),
                 'episode_id' => $episode->id,
@@ -25,6 +26,10 @@ class NoteEpisodeController extends Controller
 
             ]);
             return back()->with('success', "Vous avez noté l'épisode");
+        }
+
+        elseif($existing_note){
+            return back()->with('success', "Vous avez déjà noté l'épisode");
         }
 
         else {

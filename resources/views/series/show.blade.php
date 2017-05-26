@@ -142,7 +142,13 @@
 
 
                             @if(Auth::check())
-                            <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+                                @foreach($likes as $like)
+                                    @if($like->user_id == Auth::user()->id)
+                                        <p> Vous avez déjà aimé cette série</p>
+                                    @else
+                                        <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
+                                    @endif
+                                @endforeach
                                 <div class="rating" >
                                     <h3>Noter la série</h3>
                                     <form id="test" method="POST" action="/series/{{ $serie->id }}/notes" onchange="document.getElementById('test').submit();">

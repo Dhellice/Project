@@ -17,7 +17,7 @@ class CreateSeriesTable extends Migration
             $table->increments('id');
             $table->integer('categorie_id')->unsigned();
             $table->string('name');
-            $table->string('image')->nullable();
+            $table->string('image')->default('base.jpg');
             $table->string('resume');
             $table->timestamps();
         });

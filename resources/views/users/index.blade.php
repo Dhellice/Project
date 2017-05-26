@@ -1,5 +1,10 @@
 @extends('layouts.app')
 <style>
+
+    body{
+        background-color: #2c3e50 !important;
+        color: #bdc3c7 !important;
+    }
     .image{
     }
     .info{
@@ -27,7 +32,7 @@
         position: relative;
         top: -14px;
         padding: 0 10px;
-        background: #FFFFFF;
+        background: #2c3e50;
         color: #8c8b8b;
         font-size: 18px;
         -webkit-transform: rotate(60deg);
@@ -36,6 +41,7 @@
     }
 </style>
 @section('content')
+    <body>
     <div class="row">
         <div class="col-md-12" style="margin-left: 15%;">
             <div class="col-md-4 image">
@@ -46,7 +52,7 @@
                             </div>
                         @endif
                         <h1>Mon Profil :</h1>
-                                <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px;box-shadow: 5px 5px 5px 5px #a94442;">
+                                <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px;box-shadow: 5px 5px 5px 5px #bdc3c7;">
                     </div>
             </div>
                 <div class="col-md-8 info">
@@ -110,3 +116,4 @@
             </div>
         </div>
     </div>
+    </body>

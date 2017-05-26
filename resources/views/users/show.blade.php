@@ -21,8 +21,10 @@
                                     <strong>
                                     @foreach($users as $user)
                                             @if ($user->id == $ami->ami_id)
+                                                <img src="/img/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-right:25px">
                                         <h2>{{$user->name}}</h2>
                                         <p>{{$user->created_at}}</p>
+
                                     </strong>
                                     <h3> Séries Préférées :</h3>
                                     @foreach ($likeables as $likeable)

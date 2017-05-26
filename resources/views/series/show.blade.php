@@ -142,13 +142,10 @@
 
 
                             @if(Auth::check())
-                                @foreach($likes as $like)
-                                    @if($like->user_id == Auth::user()->id)
-                                        <p> Vous avez déjà aimé cette série</p>
-                                    @else
+
                                         <a class="btn btn-primary navbar-btn" href="{{ route('serie.like', $serie->id) }}">Aimer la serie</a><br>
-                                    @endif
-                                @endforeach
+
+
                                 <div class="rating" >
                                     <h3>Noter la série</h3>
                                     <form id="test" method="POST" action="/series/{{ $serie->id }}/notes" onchange="document.getElementById('test').submit();">
@@ -169,6 +166,7 @@
                                             <input name="note" type="radio" value="5" id="5" class="etoile"  style="visibility:hidden">
                                     </form>
                                 </div>
+
                             @endif
 
 

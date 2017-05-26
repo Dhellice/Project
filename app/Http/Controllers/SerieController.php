@@ -7,6 +7,7 @@ use App\Like;
 use App\Note;
 use App\serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SerieController extends Controller
@@ -69,7 +70,6 @@ class SerieController extends Controller
      */
     public function show($id)
     {
-        $likes = Like::all();
         $notes = Note::all();
         $serie = Serie::find($id);
         $nbrelikes = DB::table('likeables')->where('likeables.likeable_id', '=', $id)->count();
@@ -81,7 +81,7 @@ class SerieController extends Controller
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments', 'likes'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Note;
 use App\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
@@ -17,19 +18,23 @@ class NoteController extends Controller
      */
     public function store(Serie $serie)
     {
-
-        if(Auth::check()) {
+        $existing_note = Note::whereSerieId($serie->id)->whereUserId(Auth::id())->first();
+        if(Auth::check() && !$existing_note) {
         Note::create([
             'note' => request('note'),
             'serie_id' => $serie->id,
             'user_id' => Auth::user()->id,
 
         ]);
-            return back()->with('success', "Vous avez noté l'épisode");
+            return back()->with('success', "Vous avez noté la série");
+        }
+
+        elseif($existing_note){
+            return back()->with('success', "Vous avez déjà noté la série");
         }
 
         else {
-            return back()->with('success', "Vous devez être connecté pour noter l'épisode");
+            return back()->with('success', "Vous devez être connecté pour noter la série");
         }
 
     }

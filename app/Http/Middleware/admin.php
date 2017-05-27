@@ -25,7 +25,9 @@ class admin
          */
 
         if (Auth::check()
-            && Auth::user()->email == "margaux.dubezin@hotmail.fr" || Auth::user()->email == "fscalabrin2@gmail.com" || Auth::user()->email == "louise.danicourt@hotmail.fr") {
+            && Auth::user()->email == "margaux.dubezin@hotmail.fr"
+            || Auth::user()->email == "fscalabrin2@gmail.com"
+            || Auth::user()->email == "louise.danicourt@hotmail.fr") {
             return $next($request);
         }
 

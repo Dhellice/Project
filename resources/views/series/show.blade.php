@@ -200,22 +200,20 @@
                                     </td>
                                     <td>
                                         <select id ="serie" name="serie" onchange="catsel(this)">
-                                        @foreach ($serie->saison as $saison)
 
-                                            <option id="serie" selected="selected" value={{ $saison->id }}>Choix {{$saison->name}}</option>
+                                            <option selected="selected" value='{{$saison->id}}'>{{$saison->name}}</option>
 
-                                            @endforeach
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        @foreach ($serie->saison as $saison)
-                                        <div id='{{$saison->id}}' style="display:block">
+
+
+                                            <div id='serie' style="display:block">
                                                 {{ $saison->name }}
                                                 @foreach ($saison->episode as $episode)
                                                     <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
-                                            @endforeach
                                             @endforeach
 
 

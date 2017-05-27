@@ -2,7 +2,7 @@
 <style>
 
     body{
-        background-color: #2c3e50 !important;
+        background-color: #34495e !important;
         color: #bdc3c7 !important;
     }
     .image{
@@ -32,7 +32,7 @@
         position: relative;
         top: -14px;
         padding: 0 10px;
-        background: #2c3e50;
+        background: #34495e;
         color: #8c8b8b;
         font-size: 18px;
         -webkit-transform: rotate(60deg);

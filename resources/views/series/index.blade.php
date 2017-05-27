@@ -86,6 +86,7 @@
 </style>
 
 @section('content')
+    <body>
     <div class="container">
         <div class="row">
             <h1 class="text-center">Les series</h1>
@@ -136,4 +137,5 @@
     <div class="text-center">
         {{$series->links()}}
     </div>
+    </body>
 @endsection

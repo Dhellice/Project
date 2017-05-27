@@ -58,11 +58,11 @@
     /* Basic Styles */
 
     body{
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     nav {
-        height: 40px;
+        height: 60px;
         width: 100%;
         background: #7f8c8d;
         font-size: 11pt;
@@ -74,12 +74,13 @@
     nav ul {
         padding: 0;
         margin: 0 auto;
-        width: 700px;
+        width: 900px;
         height: 40px;
     }
     nav li {
         display: inline;
         float: left;
+        margin-top: 1%;
     }
     nav a {
         color: #fff;
@@ -178,14 +179,13 @@
             <ul class="clearfix">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li class="pull-left logo"><img style="width: 30px !important;height: 30px !important; margin-top: 10% !important;" src="{{ asset('img/logo.png')}}"></li>
+                    <li class="pull-left logo"><a href="{{ url('/') }}"><img style="width: 30px !important;height: 30px !important; margin-top: 5% !important;" src="{{ asset('img/logo.png')}}"></a></li>
                     <li><a href="{{ route('login') }}">Connexion</a></li>
                     <li><a href="{{ route('register') }}">Inscription</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }}">Forum</a></li>
-                    <li><a href="{{ url('/') }}">HOME</a></li>
                 @else
-                    <li class="pull-left logo"><img style="width: 30px !important;height: 30px !important; margin-top: 10% !important;" src="{{ asset('img/logo.png')}}"></li>
+                    <li class="pull-left logo"><a href="{{ url('/') }}"><img style="width: 30px !important;height: 30px !important; margin-top: 0% !important;" src="{{ asset('img/logo.png')}}"></a></li>
                     <li><a href="{{ route('user.index') }}">Profil</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }} ">Forum</a></li>

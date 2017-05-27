@@ -1,5 +1,10 @@
 @extends('layouts.app')
 <style>
+    body{
+        background-color: #32608e !important;
+        color: white !important;
+    }
+
     .button {
         text-decoration: none;
         color: #fff;
@@ -41,6 +46,7 @@
     }
 </style>
 @section('content')
+    <body>
     <div class="container">
         <div class="row">
             <div class="panel-heading text-center"><h1>Ajoutez des amis :</h1></div>
@@ -71,4 +77,5 @@
 
         </div>
     </div>
+    </body>
     @endsection

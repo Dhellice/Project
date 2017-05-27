@@ -45,7 +45,7 @@
 
     body{
         background-color: #32608e !important;
-        color: #bdc3c7 !important;
+        color: white !important;
     }
 </style>
 @section('content')

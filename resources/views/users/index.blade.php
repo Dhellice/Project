@@ -39,6 +39,26 @@
         -moz-transform: rotate(60deg);
         transform: rotate(60deg);
     }
+
+    hr.style2 {
+        border-top: 1px solid #8c8b8b;
+        text-align: center;
+        width: 300px;
+        margin-right: 65%;
+    }
+    hr.style2:after {
+        content: '§';
+        display: inline-block;
+        position: relative;
+        top: -14px;
+        padding: 0 10px;
+        background: #32608e;
+        color: #8c8b8b;
+        font-size: 18px;
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+        transform: rotate(60deg);
+    }
 </style>
 @section('content')
     <body>
@@ -64,18 +84,20 @@
         </div>
     </div>
 <br>
+
     <div class="container" style="margin-top: 5%; margin-left: 16.5%;">
     <div class="row">
         <div class="col-md-12">
         <form enctype="multipart/form-data" action="user" method="POST">
             <label>Mettre à jour mon image de profil : </label>
             <input type="file" name="avatar">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"><hr class="style" style="margin-right: 100%;">
-            <input type="submit" class="btn btn-sm btn-primary">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"><hr class="style2" style="margin-right: 74%;">
+            <input type="submit" value="Valider" class="btn btn-sm btn-primary">
         </form>
         </div>
     </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="margin-left: 12%;">

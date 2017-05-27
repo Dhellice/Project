@@ -44,7 +44,7 @@
     }
 
     body{
-        background-color: #34495e !important;
+        background-color: #32608e !important;
         color: #bdc3c7 !important;
     }
 </style>

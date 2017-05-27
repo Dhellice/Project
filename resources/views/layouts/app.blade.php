@@ -184,12 +184,14 @@
                     <li><a href="{{ route('register') }}">Inscription</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }}">Forum</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 @else
                     <li class="pull-left logo"><a href="{{ url('/') }}"><img style="width: 30px !important;height: 30px !important; margin-top: 0% !important;" src="{{ asset('img/logo.png')}}"></a></li>
                     <li><a href="{{ route('user.index') }}">Profil</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }} ">Forum</a></li>
                     <li><a href="{{ route('ami.index') }} ">Ajout Ami</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>

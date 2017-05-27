@@ -78,7 +78,7 @@
     nav ul {
         padding: 0;
         margin: 0 auto;
-        width: 900px;
+        width: 950px;
         height: 40px;
     }
     nav li {
@@ -92,7 +92,6 @@
         width: 120px;
         text-align: center;
         line-height: 40px;
-        text-shadow: 1px 1px 0px #2c3e50 !important;
         text-decoration: none !important;
     }
     nav li a {

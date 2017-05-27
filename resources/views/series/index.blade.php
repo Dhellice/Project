@@ -88,13 +88,14 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="panel-heading"><h1>Les series</h1></div>
+            <h1 class="text-center">Les series</h1>
                         @if(session('success'))
                             <div class="alert alert-success">
                                 {{session('success')}}
                             </div>
                         @endif
-            <ul class="list-group">
+            <h3 class="text-center"> Les catégories :</h3>
+            <ul class="list-group well">
             @foreach($categories as $categorie)
                     <button class="btn btn-primary"><a class="serie" href="{{route('categories.show', ['id' => $categorie->id])}}">{{$categorie->name}}</a></button>
             @endforeach

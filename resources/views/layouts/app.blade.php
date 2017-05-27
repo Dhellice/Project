@@ -40,6 +40,8 @@
     @yield('css')
 </head>
 <style>
+
+
     /* Clearfix */
     .clearfix:before,
     .clearfix:after {
@@ -62,7 +64,7 @@
     nav {
         height: 40px;
         width: 100%;
-        background: #bdc3c7;
+        background: #7f8c8d;
         font-size: 11pt;
         font-family: 'PT Sans', Arial, sans-serif;
         font-weight: bold;
@@ -89,7 +91,6 @@
         text-decoration: none !important;
     }
     nav li a {
-        border-right: 1px solid #bdc3c7;
         box-sizing:border-box;
         -moz-box-sizing:border-box;
         -webkit-box-sizing:border-box;
@@ -123,7 +124,6 @@
         }
         nav li a {
             border-bottom: 1px solid #576979;
-            border-right: 1px solid #576979;
         }
         nav a {
             text-align: left;
@@ -170,6 +170,7 @@
             border-bottom: 1px solid #576979;
         }
     }
+
 </style>
 <body>
     <div id="app">
@@ -177,12 +178,14 @@
             <ul class="clearfix">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
+                    <li class="pull-left logo"><img style="width: 30px !important;height: 30px !important; margin-top: 10% !important;" src="{{ asset('img/logo.png')}}"></li>
                     <li><a href="{{ route('login') }}">Connexion</a></li>
                     <li><a href="{{ route('register') }}">Inscription</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }}">Forum</a></li>
                     <li><a href="{{ url('/') }}">HOME</a></li>
                 @else
+                    <li class="pull-left logo"><img style="width: 30px !important;height: 30px !important; margin-top: 10% !important;" src="{{ asset('img/logo.png')}}"></li>
                     <li><a href="{{ route('user.index') }}">Profil</a></li>
                     <li><a href="{{ route('series.index') }}">Séries</a></li>
                     <li><a href="{{ route('chatter.home') }} ">Forum</a></li>

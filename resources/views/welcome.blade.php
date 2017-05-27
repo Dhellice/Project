@@ -107,7 +107,7 @@
     <div class="flex-center position-ref full-height">
         <div class="well">
             <div class="content">
-                <i class="fa fa-video-camera" aria-hidden="true"></i>
+                <img style="width: 100px !important;height: 100px !important; margin-top: 0% !important;" src="{{ asset('img/logo.png')}}">
                 <div class="title m-b-md">
                     Bienvenue sur Viewtopee
                 </div>

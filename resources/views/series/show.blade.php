@@ -190,40 +190,35 @@
                                 </ul>
                             @endforeach
 
+
                             <table>
+
                                 <tr>
                                     <td>
-                                        Choissisez la saison :
+                                        Choisissez la saison :
                                     </td>
                                     <td>
-                                        <select onchange="catsel(this)">
-                                            <!--<option value="-1">None</option>!-->
-                                            <option value="1">Choix 1</option>
-                                            <option value="2">Choix 2</option>
-                                            <option value="3">Choix 3</option>
-                                            <option value="4">Choix 4</option>
+                                        <select id ="serie" name="serie" onchange="catsel(this)">
+                                        @foreach ($serie->saison as $saison)
+
+                                            <option id="serie" selected="selected" value={{ $saison->id }}>Choix {{$saison->name}}</option>
+
+                                            @endforeach
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div id="1" style="display:block">
-                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 1</td></tr></table>
-                                        </div>
-                                        <div id="2" style="display:none">
-                                            @foreach ($serie->saison as $saison)
-                                                        {{ $saison->name }}
-                                                    @foreach ($saison->episode as $episode)
-                                                            <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
-
-                                                    @endforeach
+                                        @foreach ($serie->saison as $saison)
+                                        <div id='{{$saison->id}}' style="display:block">
+                                                {{ $saison->name }}
+                                                @foreach ($saison->episode as $episode)
+                                                    <a href="{{route('episodes.show', ['id' => $episode->id])}}"> {{ $episode->name }} </a>
                                             @endforeach
-                                        </div>
-                                        <div id="3" style="display:none">
-                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 3</td></tr></table>
-                                        </div>
-                                        <div id="4" style="display:none">
-                                            <table border="0" cellspacing="3" cellpadding="0"><tr><td>blabla 4</td></tr></table>
+                                            @endforeach
+
+
+
                                         </div>
                                     </td>
                                 </tr>

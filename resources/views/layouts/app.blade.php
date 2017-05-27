@@ -78,7 +78,7 @@
     nav ul {
         padding: 0;
         margin: 0 auto;
-        width: 950px;
+        width: 1000px;
         height: 40px;
     }
     nav li {
@@ -196,13 +196,13 @@
                     <li><a href="{{ route('ami.index') }} ">Ajout Ami</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" style="display: inline !important;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu" >
                             <li>
-                                <a href="{{ route('logout') }}"
+                                <a   href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout

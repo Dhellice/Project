@@ -144,6 +144,7 @@
                            <section> <img src="{{ asset('img/' . $serie->image) }}"></section><hr class="style">
                         <h1 class="title">{{$serie->name}}</h1>
                             <h3 class="text-center"> Nombre de likes : {{ $nbrelikes }}</h3>
+                            <div class="addthis_inline_share_toolbox_fxn8"></div>
                             <h3 class="text-center"> Note de la série :
                                 @if($nombre > 0)
                                         @if(($somme / $nombre) > 4.5)
@@ -169,7 +170,7 @@
                                     {{ "La moyenne de cette série n'est pas disponible" }}
                                     @endif</h3><hr class="style"><br>
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                            <div class="addthis_inline_share_toolbox_fxn8"></div>
+
                             <br>
 
                                    <div class="well resumer"> <p>{{$serie->resume}}</p></div>

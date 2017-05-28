@@ -54,7 +54,7 @@
         background-color:#a94442 !important;
         border: #a94442 !important;
         border: none;
-        width: 140px;
+        width: 120px;
         transition: all 0.5s;
     }
 
@@ -105,7 +105,7 @@
             </div>
                         @forelse($series as $serie)
 
-                                <div class="col-xs-5 col-md-4 block well" style="margin-left:3px; width:33%; height:500px;">
+                                <div class="col-xs-5 col-md-4 block well" style="margin-left:3px; width:33%">
                                 <h3 class="title">{{ $serie->name }}</h3>
                                     <div class="mg-image"><img class="image" src="{{ asset('img/' . $serie->image) }}"></div>
                                     <p><br>   @php
@@ -127,7 +127,7 @@
                                                     echo $resume;
 
                                         @endphp</p>
-                                <br><button class="btn btn-primary button-two" style="margin-left: 28%;"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
+                                <br><button class="btn btn-primary button-two"><a class="serie" href="{{route('series.show', ['id' => $serie->id])}}">
                                             <span>Voir la série</span>
                                 </a></button>
                                 </div>

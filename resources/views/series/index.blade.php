@@ -83,6 +83,7 @@
         opacity: 1;
         right: 0;
     }
+
 </style>
 
 @section('content')
@@ -104,7 +105,7 @@
             </div>
                         @forelse($series as $serie)
 
-                                <div class="col-xs-5 col-md-4 block well" style="">
+                                <div class="col-xs-5 col-md-4 block well" style="margin-left:3px; width:33%; height:500px;">
                                 <h3 class="title">{{ $serie->name }}</h3>
                                     <div class="mg-image"><img class="image" src="{{ asset('img/' . $serie->image) }}"></div>
                                     <p><br>   @php

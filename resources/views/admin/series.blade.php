@@ -23,12 +23,81 @@
     .image{
         width: 100%;
     }
+
+    .title{
+        text-align: center;
+    }
+    .image{
+        width: 100%;
+
+    }
+    .list-group{
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    .mg-image img {
+        -webkit-transition: all 1s ease; /* Safari and Chrome */
+        -moz-transition: all 1s ease; /* Firefox */
+        -o-transition: all 1s ease; /* IE 9 */
+        -ms-transition: all 1s ease; /* Opera */
+        transition: all 1s ease;
+        max-width: 100%;
+    }
+    .mg-image:hover img {
+        -webkit-transform:scale(1.25); /* Safari and Chrome */
+        -moz-transform:scale(1.25); /* Firefox */
+        -ms-transform:scale(1.25); /* IE 9 */
+        -o-transform:scale(1.25); /* Opera */
+        transform:scale(1.25);
+    }
+    .mg-image {
+        overflow: hidden;
+    }
+
+    .button-two {
+        border-radius: 4px;
+        background-color:#a94442 !important;
+        border: #a94442 !important;
+        border: none;
+        width: 160px;
+        transition: all 0.5s;
+        display:inline-block;
+        margin-top:5px;
+    }
+
+
+    .button-two span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button-two span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button-two:hover span {
+        padding-right: 25px;
+    }
+
+    .button-two:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
 </style>
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="panel-heading">Les series</div>
+            <div class="panel-heading"><h1 class="text-center">Les séries</h1></div>
             @if(session('success'))
                 <div class="alert alert-success">
                     {{session('success')}}
@@ -36,9 +105,9 @@
             @endif
 
             @forelse($series as $serie)
-                <div class="col-xs-5 col-md-4 block">
+                <div class="col-xs-5 col-md-4 block well" style="margin-left:3px; width:33%">
                     <h3 class="title">{{ $serie->name }}</h3>
-                    <img class="image" src="{{ asset('img/' . $serie->image) }}">
+                    <div class="mg-image"><img class="image" src="{{ asset('img/' . $serie->image) }}"></div>
                     <p><br>   @php
                             // header('Content-type: text/html; charset=UTF-8');
                                      $resume = utf8_encode(utf8_decode($serie->resume)) ;
@@ -58,10 +127,12 @@
                                      echo $resume;
 
                         @endphp</p>
-                    <br><button class="btn btn-primary"><a class="serie" href="{{route('admin.editseries', [$serie->id])}}">Modifier la série</a><br>
-                    </button>
-                    <button class="btn btn-primary"><a class="serie" href="{{route('admin.destroyseries', ['id' => $serie->id])}}">
-                            Supprimer la série
+
+                    <br><button class="btn btn-primary button-two"><a class="serie" href="{{route('admin.editseries', ['id' => $serie->id])}}">
+                            <span>Modifier la série</span>
+                        </a></button>
+                    <button class="btn btn-primary button-two"><a class="serie" href="{{route('admin.destroyseries', ['id' => $serie->id])}}">
+                            <span>Supprimer la série</span>
                         </a></button>
                 </div>
             @empty

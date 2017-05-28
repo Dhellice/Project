@@ -173,7 +173,10 @@
 
                             <br>
 
-                                   <div class="well resumer"> <p>{{$serie->resume}}</p></div>
+                                   <div class="well resumer"> <p>{{$serie->resume}}</p>
+                                       <br>
+                                       <p> Statut: {{$serie->statu}}</p>
+                                   </div>
 
                             @foreach ($serie->saison as $saison)
                                 <ul class="list-group menuderoulant">

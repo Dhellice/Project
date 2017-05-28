@@ -19,6 +19,7 @@ class CreateSeriesTable extends Migration
             $table->string('name');
             $table->string('image')->default('base.jpg');
             $table->string('resume');
+            $table->string('statu');
             $table->timestamps();
         });
     }

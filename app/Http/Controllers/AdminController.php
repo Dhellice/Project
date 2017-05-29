@@ -134,8 +134,9 @@ class AdminController extends Controller
     public function showcomments()
     {
         $comments = Comments::paginate(5);
+        $users = User::all();
 
-        return view('admin.comments', ['comments' => $comments]);
+        return view('admin.comments', ['comments' => $comments, 'users' => $users]);
     }
 
     /**

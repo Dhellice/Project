@@ -23,6 +23,7 @@
         text-align: center;
     }
 
+
     .button-two {
         border-radius: 4px;
         background-color:#a94442 !important;
@@ -73,8 +74,11 @@
                         @endif
 
                         @forelse($comments as $comment)
+                            @foreach($users as $user)
+                                @if($user->id == $comment->user_id)
                          <div class="col-xs-5 col-md-3 block well" style="margin-left:75px;">
                             <h1 class="title">{{ $comment->message }}</h1>
+                             <h2 class="text-center" style="font-size: 20px;">De <strong>{{$user->name}}</strong></h2>
 
                              <br><button class="btn btn-primary button-two"><a class="comment" href="{{route('admin.editcomments', ['id' => $comment->id])}}">
                                      <span>Modifier le commentaire</span>
@@ -83,10 +87,13 @@
                                      <span>Supprimer le commentaire</span>
                                  </a></button>
 
-
                         </div>
-                        @empty
+                    @endif
+                @endforeach
+
+            @empty
                             Rien du tout
+
                         @endforelse
                     </div>
                     <div class="text-center">

@@ -274,8 +274,11 @@
                                 <ul class="list-group">
                                     <h3> Nombres de commentaires : {{ $nbrecomments }}</h3>
                                     @foreach ($serie->comments as $comment)
+                                        @foreach($users as $user)
+                                            @if($user->id == $comment->user_id)
                                         <li class="list-group-item">
                                             <strong>
+                                                {{$user->name}}
                                                 {{ $comment->created_at->diffForHumans() }}
                                             </strong>
                                             {{ $comment->message }}<br>
@@ -288,7 +291,9 @@
                                             @else
                                             @endif
                                         </li>
+                                            @endif
                                     @endforeach
+                                        @endforeach
 
                                 </ul>
                             </div>

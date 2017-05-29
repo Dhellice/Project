@@ -6,6 +6,7 @@ use App\Categorie;
 use App\Like;
 use App\Note;
 use App\serie;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -76,12 +77,13 @@ class SerieController extends Controller
         $nbrecomments = DB::table('comments')->where('comments.serie_id', '=', $id)->count();
         $somme =  DB::table('notes')->where('notes.serie_id', '=', $id)->sum('notes.note');
         $nombre = DB::table('notes')->where('notes.serie_id', '=', $id)->count();
+        $users = User::all();
 
         if(!$serie) {
             return redirect()->route('series.index');
         }
 
-        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments'));
+        return view('series.show', compact('serie', 'notes', 'somme', 'nombre', 'nbrelikes', 'nbrecomments', 'users'));
     }
 
     /**
